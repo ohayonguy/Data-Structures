@@ -96,25 +96,39 @@ CMakeFiles/WET1.dir/dict_avl.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/WET1.dir/dict_avl.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/dict_avl.cpp" -o CMakeFiles/WET1.dir/dict_avl.cpp.s
 
-CMakeFiles/WET1.dir/library1.c.o: CMakeFiles/WET1.dir/flags.make
-CMakeFiles/WET1.dir/library1.c.o: ../library1.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/WET1.dir/library1.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/WET1.dir/library1.c.o   -c "/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1.c"
+CMakeFiles/WET1.dir/library1_list.cpp.o: CMakeFiles/WET1.dir/flags.make
+CMakeFiles/WET1.dir/library1_list.cpp.o: ../library1_list.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/WET1.dir/library1_list.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/WET1.dir/library1_list.cpp.o -c "/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1_list.cpp"
 
-CMakeFiles/WET1.dir/library1.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/WET1.dir/library1.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1.c" > CMakeFiles/WET1.dir/library1.c.i
+CMakeFiles/WET1.dir/library1_list.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/WET1.dir/library1_list.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1_list.cpp" > CMakeFiles/WET1.dir/library1_list.cpp.i
 
-CMakeFiles/WET1.dir/library1.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/WET1.dir/library1.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1.c" -o CMakeFiles/WET1.dir/library1.c.s
+CMakeFiles/WET1.dir/library1_list.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/WET1.dir/library1_list.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1_list.cpp" -o CMakeFiles/WET1.dir/library1_list.cpp.s
+
+CMakeFiles/WET1.dir/library1_tests.cpp.o: CMakeFiles/WET1.dir/flags.make
+CMakeFiles/WET1.dir/library1_tests.cpp.o: ../library1_tests.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/WET1.dir/library1_tests.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/WET1.dir/library1_tests.cpp.o -c "/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1_tests.cpp"
+
+CMakeFiles/WET1.dir/library1_tests.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/WET1.dir/library1_tests.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1_tests.cpp" > CMakeFiles/WET1.dir/library1_tests.cpp.i
+
+CMakeFiles/WET1.dir/library1_tests.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/WET1.dir/library1_tests.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1_tests.cpp" -o CMakeFiles/WET1.dir/library1_tests.cpp.s
 
 # Object files for target WET1
 WET1_OBJECTS = \
 "CMakeFiles/WET1.dir/main.cpp.o" \
 "CMakeFiles/WET1.dir/dict_list.cpp.o" \
 "CMakeFiles/WET1.dir/dict_avl.cpp.o" \
-"CMakeFiles/WET1.dir/library1.c.o"
+"CMakeFiles/WET1.dir/library1_list.cpp.o" \
+"CMakeFiles/WET1.dir/library1_tests.cpp.o"
 
 # External object files for target WET1
 WET1_EXTERNAL_OBJECTS =
@@ -122,10 +136,11 @@ WET1_EXTERNAL_OBJECTS =
 WET1.exe: CMakeFiles/WET1.dir/main.cpp.o
 WET1.exe: CMakeFiles/WET1.dir/dict_list.cpp.o
 WET1.exe: CMakeFiles/WET1.dir/dict_avl.cpp.o
-WET1.exe: CMakeFiles/WET1.dir/library1.c.o
+WET1.exe: CMakeFiles/WET1.dir/library1_list.cpp.o
+WET1.exe: CMakeFiles/WET1.dir/library1_tests.cpp.o
 WET1.exe: CMakeFiles/WET1.dir/build.make
 WET1.exe: CMakeFiles/WET1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable WET1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable WET1.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/WET1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

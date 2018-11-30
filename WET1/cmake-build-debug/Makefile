@@ -177,32 +177,59 @@ dict_list.cpp.s:
 	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/dict_list.cpp.s
 .PHONY : dict_list.cpp.s
 
-library1.o: library1.c.o
+library1_list.o: library1_list.cpp.o
 
-.PHONY : library1.o
+.PHONY : library1_list.o
 
 # target to build an object file
-library1.c.o:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1.c.o
-.PHONY : library1.c.o
+library1_list.cpp.o:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_list.cpp.o
+.PHONY : library1_list.cpp.o
 
-library1.i: library1.c.i
+library1_list.i: library1_list.cpp.i
 
-.PHONY : library1.i
+.PHONY : library1_list.i
 
 # target to preprocess a source file
-library1.c.i:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1.c.i
-.PHONY : library1.c.i
+library1_list.cpp.i:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_list.cpp.i
+.PHONY : library1_list.cpp.i
 
-library1.s: library1.c.s
+library1_list.s: library1_list.cpp.s
 
-.PHONY : library1.s
+.PHONY : library1_list.s
 
 # target to generate assembly for a file
-library1.c.s:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1.c.s
-.PHONY : library1.c.s
+library1_list.cpp.s:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_list.cpp.s
+.PHONY : library1_list.cpp.s
+
+library1_tests.o: library1_tests.cpp.o
+
+.PHONY : library1_tests.o
+
+# target to build an object file
+library1_tests.cpp.o:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_tests.cpp.o
+.PHONY : library1_tests.cpp.o
+
+library1_tests.i: library1_tests.cpp.i
+
+.PHONY : library1_tests.i
+
+# target to preprocess a source file
+library1_tests.cpp.i:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_tests.cpp.i
+.PHONY : library1_tests.cpp.i
+
+library1_tests.s: library1_tests.cpp.s
+
+.PHONY : library1_tests.s
+
+# target to generate assembly for a file
+library1_tests.cpp.s:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_tests.cpp.s
+.PHONY : library1_tests.cpp.s
 
 main.o: main.cpp.o
 
@@ -246,9 +273,12 @@ help:
 	@echo "... dict_list.o"
 	@echo "... dict_list.i"
 	@echo "... dict_list.s"
-	@echo "... library1.o"
-	@echo "... library1.i"
-	@echo "... library1.s"
+	@echo "... library1_list.o"
+	@echo "... library1_list.i"
+	@echo "... library1_list.s"
+	@echo "... library1_tests.o"
+	@echo "... library1_tests.i"
+	@echo "... library1_tests.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
