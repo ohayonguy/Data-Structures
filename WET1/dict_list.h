@@ -61,10 +61,19 @@ public:
             temp_previous->next = temp_next;
         else // If we got here it means that node_to_delete was the head, so we need to update the head ptr.
             head = temp_next;
+        size--;
     }
     int GetSize() {
         return size;
     }
+    void PrintDict() {
+        ListNode* current = head;
+        while (current != nullptr) {
+            std::cout << *((int*)(current->value)) << std::endl;
+            current = current->next;
+        }
+    }
+    const Value* GetAllValues() {} // TODO: implement!
 private:
     /**
      * Find a node by a given key and return a pointer to that node.

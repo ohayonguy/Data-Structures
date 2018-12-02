@@ -86,9 +86,6 @@
 		<Unit filename="/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/dict_avl.h">
 			<Option target="WET1"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/dict_list.cpp">
-			<Option target="WET1"/>
-		</Unit>
 		<Unit filename="/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/dict_list.h">
 			<Option target="WET1"/>
 		</Unit>
@@ -96,9 +93,6 @@
 			<Option target="WET1"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1_tests.cpp">
-			<Option target="WET1"/>
-		</Unit>
-		<Unit filename="/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/main.cpp">
 			<Option target="WET1"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/CMakeLists.txt">

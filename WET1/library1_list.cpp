@@ -93,7 +93,7 @@ StatusType Size(void *DS, int *n) {
 void Quit(void** DS) {
     if (DS == NULL || *DS == NULL)
         return;
-    delete *DS;
+    delete *((DictList<Key,Value>**)DS);
     *DS = NULL;
     return;
 }

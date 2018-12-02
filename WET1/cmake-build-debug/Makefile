@@ -150,33 +150,6 @@ dict_avl.cpp.s:
 	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/dict_avl.cpp.s
 .PHONY : dict_avl.cpp.s
 
-dict_list.o: dict_list.cpp.o
-
-.PHONY : dict_list.o
-
-# target to build an object file
-dict_list.cpp.o:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/dict_list.cpp.o
-.PHONY : dict_list.cpp.o
-
-dict_list.i: dict_list.cpp.i
-
-.PHONY : dict_list.i
-
-# target to preprocess a source file
-dict_list.cpp.i:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/dict_list.cpp.i
-.PHONY : dict_list.cpp.i
-
-dict_list.s: dict_list.cpp.s
-
-.PHONY : dict_list.s
-
-# target to generate assembly for a file
-dict_list.cpp.s:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/dict_list.cpp.s
-.PHONY : dict_list.cpp.s
-
 library1_list.o: library1_list.cpp.o
 
 .PHONY : library1_list.o
@@ -231,33 +204,6 @@ library1_tests.cpp.s:
 	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_tests.cpp.s
 .PHONY : library1_tests.cpp.s
 
-main.o: main.cpp.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/main.cpp.s
-.PHONY : main.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -270,18 +216,12 @@ help:
 	@echo "... dict_avl.o"
 	@echo "... dict_avl.i"
 	@echo "... dict_avl.s"
-	@echo "... dict_list.o"
-	@echo "... dict_list.i"
-	@echo "... dict_list.s"
 	@echo "... library1_list.o"
 	@echo "... library1_list.i"
 	@echo "... library1_list.s"
 	@echo "... library1_tests.o"
 	@echo "... library1_tests.i"
 	@echo "... library1_tests.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 .PHONY : help
 
 
