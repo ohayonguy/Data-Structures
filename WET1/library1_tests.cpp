@@ -1,13 +1,18 @@
 #include <iostream>
 #include "library1.h"
-//#include "dict_list.h"
+#include "dict_list.h"
 #include "dict_avl.h"
-/*typedef int Key;
-typedef void* Value;
-typedef void* DS;
-typedef DictList<Key,Value>::ListNode ListNode;
+#include <list>
+typedef int Key;
+typedef int Value;
+//typedef void* DS;
+//typedef DictList<Key,Value>::ListNode ListNode;
 using std::cout;
 using std::endl;
+#ifdef NDEBUG
+#undef NDEBUG
+#endif
+/*
 void test_Add(DS dataset,int size, int* numbers) {
     StatusType result;
     ListNode** list_node = new ListNode*;
@@ -42,8 +47,17 @@ int main() {
     }
     test_Add(dataset,size,numbers);
     DictList<Key,Value>* true_data_set = (DictList<Key,Value>*)dataset;
-    true_data_set->PrintDict();
-    return 0;*/
-    DictAvl<int,int> avl_dict;
-    avl_dict.InsertNode(10,5);
+    true_data_set->PrintDict();*/
+    std::cout<<"start!"<<std::endl;
+    DictAvl<Key,Value> avl_dict;
+    for (int i = 0; i < 9999999; i++) {
+        int number_inserted = rand();
+        //std::cout<<i<<std::endl;
+
+        avl_dict.InsertNode(i,i);
+    }
+//    DictAvl<Key,Value>::PrintInOrder(&avl_dict);
+    //TODO: the root is not correct. somewhere I need to update it after every insertion.
+    std::cout<<"OK!"<<std::endl;
+    return 0;
 }
