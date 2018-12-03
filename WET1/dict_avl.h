@@ -44,6 +44,7 @@ public:
     //int GetSize();
     //void PrintDict();
     static void PrintInOrder(const DictAvl* avl);
+    int GetTreeHeight(const AvlNode* root);
 private:
     void InsertNode(AvlNode *current_node, AvlNode* node_to_insert);
     /**
@@ -58,13 +59,11 @@ private:
     static void RollRight(AvlNode*);
     static void RollLeft(AvlNode*);
     static void DeleteTree(const AvlNode* node_to_delete);
-    void UpdateBalanceFactorAndRoll(AvlNode * current_node, int last_balance_factor);
-    static void SwitchNodesValueAndKey(AvlNode* node1, AvlNode* node2);
     static bool CheckIfAVL(const AvlNode* root);
-    static int GetTreeHeight(const AvlNode* root);
     static void PrintInOrder(const AvlNode* root);
     static void BSTInsert(AvlNode* root, AvlNode* new_node);
     static AvlNode* Roll(AvlNode* base_node);
+    static bool NodeInTree(const AvlNode* root, const AvlNode* node_to_look_for);
 };
 
 template<class Key, class Value>
@@ -75,6 +74,8 @@ typename DictAvl<Key, Value>::AvlNode *DictAvl<Key, Value>::InsertNode(const Key
         return new_node;
     }
     BSTInsert(root,new_node);
+    size++;
+    assert(NodeInTree(root,new_node));
     UpdateTreeBottomToTop(new_node);
     assert(CheckIfAVL(root)); //add a test if the tree is still AVL;
 }
@@ -111,6 +112,8 @@ void DictAvl<Key, Value>::UpdateTreeBottomToTop(DictAvl::AvlNode *bottom_node) {
     }
     AvlNode* bottom_node_father = bottom_node->father;
     bottom_node = Roll(bottom_node);
+    assert(abs(bottom_node->balance_factor) <= 1);
+    assert(abs(bottom_node->right_height-bottom_node->left_height) <= 1);
     int bottom_node_height = std::max(bottom_node->right_height,bottom_node->left_height);
     if (bottom_node_father->key < bottom_node->key) {
         bottom_node_father->right_son = bottom_node;
@@ -121,6 +124,7 @@ void DictAvl<Key, Value>::UpdateTreeBottomToTop(DictAvl::AvlNode *bottom_node) {
     }
     bottom_node_father->balance_factor = bottom_node_father->left_height - bottom_node_father->right_height;
     bottom_node->father = bottom_node_father;
+    assert(CheckIfAVL(bottom_node));
     UpdateTreeBottomToTop(bottom_node_father);
 }
 
@@ -133,13 +137,15 @@ typename DictAvl<Key,Value>::AvlNode* DictAvl<Key, Value>::Roll(typename DictAvl
         if (base_node->right_son->balance_factor == -1) {
             AvlNode* return_node = base_node->right_son;
             RollLeft(base_node);
+            assert(abs(return_node->balance_factor)<=1);
             return return_node;
         } else {
-            assert(base_node->right_son->balance_factor == 1 && base_node->right_son->left_son != nullptr);
+            assert(base_node->right_son->balance_factor >= 0 && base_node->right_son->left_son != nullptr);
             AvlNode* return_node = base_node->right_son->left_son;
             RollRight(base_node->right_son);
             base_node->right_son = return_node;
             RollLeft(base_node);
+            assert(abs(return_node->balance_factor)<=1);
             return return_node;
         }
     } else if (base_node->balance_factor == 2) {
@@ -150,14 +156,17 @@ typename DictAvl<Key,Value>::AvlNode* DictAvl<Key, Value>::Roll(typename DictAvl
             RollLeft(base_node->left_son);
             base_node->left_son = return_node;
             RollRight(base_node);
+            assert(abs(return_node->balance_factor)<=1);
             return return_node;
         } else {
-            assert(base_node->left_son->balance_factor == 1);
+            assert(base_node->left_son->balance_factor >= 0);
             AvlNode* return_node = base_node->left_son;
             RollRight(base_node);
+            assert(abs(return_node->balance_factor)<=1);
             return return_node;
         }
     }
+    //assert(abs(base_node->balance_factor)<=1);
     return base_node;
 }
 
@@ -214,7 +223,7 @@ bool DictAvl<Key, Value>::CheckIfAVL(const DictAvl::AvlNode *root) {
         return true;
     int right_height = root->right_height;
     int left_height = root->left_height;
-    if (abs(right_height-left_height) > 1)
+    if (abs(right_height-left_height) > 1 || abs(root->balance_factor) > 1)
         return false;
 
     if (CheckIfAVL(root->right_son) == false)
@@ -222,4 +231,21 @@ bool DictAvl<Key, Value>::CheckIfAVL(const DictAvl::AvlNode *root) {
     return CheckIfAVL(root->left_son); //I splitted the test for the left and right tree in order to potentially save a lot of runtime.
     // I mean, instead of: return CheckIfAVL(root->left_son) && CheckIfAVL(root->right_son)
 }
+
+template<class Key, class Value>
+bool DictAvl<Key, Value>::NodeInTree(const DictAvl::AvlNode *root, const DictAvl::AvlNode* node_to_look_for) {
+    if (root == nullptr || node_to_look_for == nullptr)
+        return false;
+    if (root->key < node_to_look_for->key) {
+        if (root->right_son == node_to_look_for)
+            return true;
+        return NodeInTree(root->right_son, node_to_look_for);
+    } else if (root->key > node_to_look_for->key) {
+        if (root->left_son == node_to_look_for)
+            return true;
+        return NodeInTree(root->left_son, node_to_look_for);
+    }
+    return false;
+}
+
 #endif //WET1_DICT_AVL_H

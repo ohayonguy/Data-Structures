@@ -80,9 +80,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/dict_avl.cpp">
-			<Option target="WET1"/>
-		</Unit>
 		<Unit filename="/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/dict_avl.h">
 			<Option target="WET1"/>
 		</Unit>
