@@ -50,11 +50,10 @@ int main() {
     true_data_set->PrintDict();*/
     std::cout<<"start!"<<std::endl;
     DictAvl<Key,Value> avl_dict;
-    for (int i = 0; i < 100000; i += 2) {
+    for (int i = 0; i < 100000; i ++) {
         std::cout<<i<<std::endl;
         int key = rand();
         //std::cout<<i<<std::endl;
-
         avl_dict.InsertNode(key,i);
     }
     for (int i = 1; i < 10001; i += 2) {

@@ -8,6 +8,7 @@
 #include <iostream>
 #include <assert.h>
 #include <algorithm>
+#include <vector>
 
 template <class Key, class Value>
 class DictAvl {
@@ -20,18 +21,17 @@ public:
         AvlNode* right_son;
         AvlNode* father;
         int balance_factor;
-        int right_height;
         int left_height;
-        AvlNode(const Key& key, const Value& value, AvlNode* left_son,
-                AvlNode* right_son, AvlNode* father, int balance_factor) :
+        int right_height;
+        AvlNode(const Key& key, const Value& value) :
                 value(value),
                 key(key),
                 left_son(nullptr),
                 right_son(nullptr),
                 father(nullptr),
                 balance_factor(0),
-                right_height(0),
-                left_height(0) {};
+                left_height(0),
+                right_height(0) {};
     };
     DictAvl() : root(nullptr), size(0) {};
     ~DictAvl();
@@ -60,15 +60,15 @@ private:
     static void RollLeft(AvlNode*);
     static void DeleteTree(const AvlNode* node_to_delete);
     static bool CheckIfAVL(const AvlNode* root);
-    static void PrintInOrder(const AvlNode* root);
+    static void PrintInOrder(const AvlNode* root, std::vector<Key>* result);
     static void BSTInsert(AvlNode* root, AvlNode* new_node);
-    static AvlNode* Roll(AvlNode* base_node);
+    static void Roll(AvlNode* base_node);
     static bool NodeInTree(const AvlNode* root, const AvlNode* node_to_look_for);
 };
 
 template<class Key, class Value>
 typename DictAvl<Key, Value>::AvlNode *DictAvl<Key, Value>::InsertNode(const Key &key, const Value &value) {
-    AvlNode* new_node = new AvlNode(key,value, nullptr, nullptr, nullptr,0);
+    AvlNode* new_node = new AvlNode(key,value);
     if (this->root == nullptr) {
         this->root = new_node;
         return new_node;
@@ -97,108 +97,124 @@ void DictAvl<Key, Value>::BSTInsert(AvlNode* root, DictAvl::AvlNode *new_node) {
         }
         else
             BSTInsert(root->left_son, new_node);
+    } else {
+        assert(false); // the key is already inserted!
     }
-    return;
 }
 
 template<class Key, class Value>
 void DictAvl<Key, Value>::UpdateTreeBottomToTop(DictAvl::AvlNode *bottom_node) {
     if (bottom_node == nullptr)
-        return;
-    if (bottom_node->father == nullptr) {
-        root = Roll(bottom_node);
-        root->father = nullptr;
-        return;
-    }
+        return; //nothing to update
+    assert(abs(bottom_node->balance_factor)<=2);
     AvlNode* bottom_node_father = bottom_node->father;
-    bottom_node = Roll(bottom_node);
+    //int bottom_node_height = std::max(bottom_node->right_height,bottom_node->left_height);
+    //std::cout<<" BOTTOM NODE HEIGHT: before = "<<bottom_node_height;
+    Roll(bottom_node);
     assert(abs(bottom_node->balance_factor) <= 1);
     assert(abs(bottom_node->right_height-bottom_node->left_height) <= 1);
-    int bottom_node_height = std::max(bottom_node->right_height,bottom_node->left_height);
-    if (bottom_node_father->key < bottom_node->key) {
-        bottom_node_father->right_son = bottom_node;
-        bottom_node_father->right_height = 1 + bottom_node_height;
-    } else {
-        bottom_node_father->left_son = bottom_node;
-        bottom_node_father->left_height = 1 + bottom_node_height;
-    }
-    bottom_node_father->balance_factor = bottom_node_father->left_height - bottom_node_father->right_height;
-    bottom_node->father = bottom_node_father;
+    int bottom_node_height = std::max(bottom_node->right_height,bottom_node->left_height);;
     assert(CheckIfAVL(bottom_node));
     UpdateTreeBottomToTop(bottom_node_father);
+    assert(abs(bottom_node->balance_factor)<=2);
+    //assert(abs(bottom_node_father->balance_factor)<=2);
 }
 
 template<class Key, class Value>
-typename DictAvl<Key,Value>::AvlNode* DictAvl<Key, Value>::Roll(typename DictAvl::AvlNode *base_node) {
+void DictAvl<Key, Value>::Roll(typename DictAvl::AvlNode *base_node) {
     if (base_node == nullptr)
-        return nullptr;
+        return;
+    assert(abs(base_node->balance_factor)<=2);
+    bool rolled = false;
     if (base_node->balance_factor == -2) {
+        rolled = true;
         assert(base_node->right_son != nullptr);
         if (base_node->right_son->balance_factor == -1) {
-            AvlNode* return_node = base_node->right_son;
             RollLeft(base_node);
-            assert(abs(return_node->balance_factor)<=1);
-            return return_node;
         } else {
             assert(base_node->right_son->balance_factor >= 0 && base_node->right_son->left_son != nullptr);
-            AvlNode* return_node = base_node->right_son->left_son;
             RollRight(base_node->right_son);
-            base_node->right_son = return_node;
             RollLeft(base_node);
-            assert(abs(return_node->balance_factor)<=1);
-            return return_node;
         }
     } else if (base_node->balance_factor == 2) {
+        rolled = true;
         assert(base_node->left_son != nullptr);
         if (base_node->left_son->balance_factor == -1) {
             assert(base_node->left_son->right_son != nullptr);
-            AvlNode* return_node = base_node->left_son->right_son;
             RollLeft(base_node->left_son);
-            base_node->left_son = return_node;
             RollRight(base_node);
-            assert(abs(return_node->balance_factor)<=1);
-            return return_node;
         } else {
             assert(base_node->left_son->balance_factor >= 0);
-            AvlNode* return_node = base_node->left_son;
             RollRight(base_node);
-            assert(abs(return_node->balance_factor)<=1);
-            return return_node;
         }
     }
+    /*if(abs(base_node->balance_factor) > 1) {
+        std::cout<<rolled<<std::endl;
+        PrintInOrder(base_node);
+    }*/
     //assert(abs(base_node->balance_factor)<=1);
-    return base_node;
+    return;
 }
 
 template<class Key, class Value>
 void DictAvl<Key, Value>::RollLeft(DictAvl::AvlNode *base_node) {
     assert(base_node != nullptr && base_node->right_son != nullptr);
+    AvlNode* father_to_update = base_node->father;
     AvlNode* right_son = base_node->right_son;
     base_node->father = right_son;
     base_node->right_son = right_son->left_son;
     base_node->right_height = 0;
-    if (right_son->left_son != nullptr)
-        base_node->right_height = 1 + std::max(right_son->left_son->right_height, right_son->left_son->left_height);
+    if (base_node->right_son != nullptr)
+        base_node->right_height = 1 + std::max(base_node->right_son->right_height, base_node->right_son->left_height);
     base_node->balance_factor = base_node->left_height - base_node->right_height;
 
     right_son->left_son = base_node;
-    right_son->left_height = 1 + std::max(right_son->left_son->left_height, right_son->left_son->right_height);
+    right_son->left_height = 0;
+    if (right_son->left_son != nullptr)
+        right_son->left_height = 1 + std::max(right_son->left_son->left_height, right_son->left_son->right_height);
     right_son->balance_factor = right_son->left_height - right_son->right_height;
+
+    if (father_to_update != nullptr) {
+        if (father_to_update->right_son == base_node) {
+            father_to_update->right_height = 1 + std::max(right_son->left_height, right_son->right_height);
+            father_to_update->right_son = right_son;
+        } else {
+            father_to_update->left_height = 1 + std::max(right_son->left_height, right_son->right_height);
+            father_to_update->left_son = right_son;
+        }
+        father_to_update->balance_factor = father_to_update->left_height - father_to_update->right_height;
+    }
+    right_son->father = father_to_update;
 }
 template<class Key, class Value>
 void DictAvl<Key, Value>::RollRight(DictAvl::AvlNode *base_node) {
     assert(base_node != nullptr && base_node->left_son != nullptr);
+    AvlNode* father_to_update = base_node->father;
     AvlNode* left_son = base_node->left_son;
     base_node->father = left_son;
     base_node->left_son = left_son->right_son;
     base_node->left_height = 0;
-    if (left_son->right_son != nullptr)
-        base_node->left_height = 1 + std::max(left_son->right_son->right_height, left_son->right_son->left_height);
+    if (base_node->left_son != nullptr)
+        base_node->left_height = 1 + std::max(base_node->left_son->right_height, base_node->left_son->left_height);
     base_node->balance_factor = base_node->left_height - base_node->right_height;
 
     left_son->right_son = base_node;
-    left_son->right_height = 1 + std::max(left_son->right_son->right_height, left_son->right_son->left_height);
+    left_son->right_height = 0;
+    if (left_son->right_son != nullptr)
+        left_son->right_height = 1 + std::max(left_son->right_son->left_height, left_son->right_son->right_height);
     left_son->balance_factor = left_son->left_height - left_son->right_height;
+
+    if (father_to_update != nullptr) {
+        if (father_to_update->left_son == base_node) {
+            father_to_update->left_height = 1 + std::max(left_son->left_height, left_son->right_height);
+            father_to_update->left_son = left_son;
+        } else {
+            father_to_update->right_height = 1 + std::max(left_son->left_height, left_son->right_height);
+            father_to_update->right_son = left_son;
+        }
+        father_to_update->balance_factor = father_to_update->left_height - father_to_update->right_height;
+    }
+    left_son->father = father_to_update;
 }
 
 template<class Key, class Value>
@@ -246,6 +262,16 @@ bool DictAvl<Key, Value>::NodeInTree(const DictAvl::AvlNode *root, const DictAvl
         return NodeInTree(root->left_son, node_to_look_for);
     }
     return false;
+}
+
+template<class Key, class Value>
+void DictAvl<Key, Value>::PrintInOrder(const DictAvl::AvlNode *root, std::vector<Key>* result) {
+    if (root == nullptr)
+        return;
+    PrintInOrder(root->left_son,result);
+    result->push_back(root->key);
+    std::cout<<"Key:"<<root->key<<"| BF:"<<root->balance_factor<<"| RH:"<<root->right_height<<"| LH:"<<root->left_height<<std::endl;
+    PrintInOrder(root->right_son,result);
 }
 
 #endif //WET1_DICT_AVL_H
