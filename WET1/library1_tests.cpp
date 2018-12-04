@@ -1,6 +1,9 @@
 #include <iostream>
 #include "library1.h"
 #include "dict_list.h"
+#ifdef NDEBUG
+#undef NDEBUG
+#endif
 #include "dict_avl.h"
 #include <list>
 typedef int Key;
@@ -9,9 +12,7 @@ typedef int Value;
 //typedef DictList<Key,Value>::ListNode ListNode;
 using std::cout;
 using std::endl;
-#ifdef NDEBUG
-#undef NDEBUG
-#endif
+
 /*
 void test_Add(DS dataset,int size, int* numbers) {
     StatusType result;
@@ -50,18 +51,19 @@ int main() {
     true_data_set->PrintDict();*/
     std::cout<<"start!"<<std::endl;
     DictAvl<Key,Value> avl_dict;
-    for (int i = 0; i < 100000; i ++) {
+    std::vector<Key> inserted_keys;
+    for (int i = 0; i < 10000; i ++) {
         std::cout<<i<<std::endl;
-        int key = rand();
+        Key key = rand();
+        inserted_keys.push_back(key);
         //std::cout<<i<<std::endl;
         avl_dict.InsertNode(key,i);
     }
-    for (int i = 1; i < 10001; i += 2) {
+    for (int i = 0; i < 10000; i ++) {
         std::cout<<i<<std::endl;
-        int key = rand();
         //std::cout<<i<<std::endl;
-
-        avl_dict.InsertNode(i,i);
+        avl_dict.DeleteNode(inserted_keys.back());
+        inserted_keys.pop_back();
     }
 //    DictAvl<Key,Value>::PrintInOrder(&avl_dict);
     //TODO: the root is not correct. somewhere I need to update it after every insertion.

@@ -4,7 +4,7 @@
 
 #ifndef WET1_DICT_AVL_H
 #define WET1_DICT_AVL_H
-
+//#define NDEBUG
 #include <iostream>
 #include <assert.h>
 #include <algorithm>
@@ -40,30 +40,25 @@ public:
     //Value GetValueByKey(const Key& key);
     //void DeleteNodeByKey(const Key &key);
     //void DeleteNodeByPtr(const DictAvl* node_to_delete);
-    void DeleteNodeByKey(const Key& key, AvlNode* current_node);
+    void DeleteNode(const Key& key);
     //int GetSize();
     //void PrintDict();
-    static void PrintInOrder(const DictAvl* avl);
     int GetTreeHeight(const AvlNode* root);
 private:
-    void InsertNode(AvlNode *current_node, AvlNode* node_to_insert);
-    /**
-     * Find a node by a given key and return a pointer to that node.
-     * @param key is the key to look for
-     * @return list node pointer which contains the given key.
-     */
-    ///DictAvl* GetNodeByKey(const Key& key);
     AvlNode* root;
     int size;
+    void DeleteNodeByPtr(const AvlNode* node_to_delete);
     void UpdateTreeBottomToTop(AvlNode* bottom_node);
     static void RollRight(AvlNode*);
     static void RollLeft(AvlNode*);
     static void DeleteTree(const AvlNode* node_to_delete);
     static bool CheckIfAVL(const AvlNode* root);
-    static void PrintInOrder(const AvlNode* root, std::vector<Key>* result);
+    static void GetAllValuesInOrder(const AvlNode* root, std::vector<Value>* result);
     static void BSTInsert(AvlNode* root, AvlNode* new_node);
     static void Roll(AvlNode* base_node);
     static bool NodeInTree(const AvlNode* root, const AvlNode* node_to_look_for);
+    static AvlNode* GetNodeToSwitchWith(const AvlNode* node_to_delete);
+    static AvlNode* GetNodePtrByKey(AvlNode* root, const Key& key);
 };
 
 template<class Key, class Value>
@@ -75,14 +70,14 @@ typename DictAvl<Key, Value>::AvlNode *DictAvl<Key, Value>::InsertNode(const Key
     }
     BSTInsert(root,new_node);
     size++;
-    assert(NodeInTree(root,new_node));
+    //assert(NodeInTree(root,new_node));
     UpdateTreeBottomToTop(new_node);
     assert(CheckIfAVL(root)); //add a test if the tree is still AVL;
 }
 
 template<class Key, class Value>
 void DictAvl<Key, Value>::BSTInsert(AvlNode* root, DictAvl::AvlNode *new_node) {
-    assert(root != nullptr && new_node != nullptr);
+    //assert(root != nullptr && new_node != nullptr);
     if (root->key < new_node->key) {
         if (root->right_son == nullptr) {
             root->right_son = new_node;
@@ -106,17 +101,16 @@ template<class Key, class Value>
 void DictAvl<Key, Value>::UpdateTreeBottomToTop(DictAvl::AvlNode *bottom_node) {
     if (bottom_node == nullptr)
         return; //nothing to update
-    assert(abs(bottom_node->balance_factor)<=2);
+    //assert(abs(bottom_node->balance_factor)<=2);
     AvlNode* bottom_node_father = bottom_node->father;
     //int bottom_node_height = std::max(bottom_node->right_height,bottom_node->left_height);
     //std::cout<<" BOTTOM NODE HEIGHT: before = "<<bottom_node_height;
     Roll(bottom_node);
-    assert(abs(bottom_node->balance_factor) <= 1);
-    assert(abs(bottom_node->right_height-bottom_node->left_height) <= 1);
-    int bottom_node_height = std::max(bottom_node->right_height,bottom_node->left_height);;
-    assert(CheckIfAVL(bottom_node));
+    //assert(abs(bottom_node->balance_factor) <= 1);
+    //assert(abs(bottom_node->right_height-bottom_node->left_height) <= 1);
+    //assert(CheckIfAVL(bottom_node));
     UpdateTreeBottomToTop(bottom_node_father);
-    assert(abs(bottom_node->balance_factor)<=2);
+    //assert(abs(bottom_node->balance_factor)<=2);
     //assert(abs(bottom_node_father->balance_factor)<=2);
 }
 
@@ -124,27 +118,27 @@ template<class Key, class Value>
 void DictAvl<Key, Value>::Roll(typename DictAvl::AvlNode *base_node) {
     if (base_node == nullptr)
         return;
-    assert(abs(base_node->balance_factor)<=2);
+    //assert(abs(base_node->balance_factor)<=2);
     bool rolled = false;
     if (base_node->balance_factor == -2) {
         rolled = true;
-        assert(base_node->right_son != nullptr);
+        //assert(base_node->right_son != nullptr);
         if (base_node->right_son->balance_factor == -1) {
             RollLeft(base_node);
         } else {
-            assert(base_node->right_son->balance_factor >= 0 && base_node->right_son->left_son != nullptr);
+            //assert(base_node->right_son->balance_factor >= 0 && base_node->right_son->left_son != nullptr);
             RollRight(base_node->right_son);
             RollLeft(base_node);
         }
     } else if (base_node->balance_factor == 2) {
         rolled = true;
-        assert(base_node->left_son != nullptr);
+        //assert(base_node->left_son != nullptr);
         if (base_node->left_son->balance_factor == -1) {
-            assert(base_node->left_son->right_son != nullptr);
+            //assert(base_node->left_son->right_son != nullptr);
             RollLeft(base_node->left_son);
             RollRight(base_node);
         } else {
-            assert(base_node->left_son->balance_factor >= 0);
+            //assert(base_node->left_son->balance_factor >= 0);
             RollRight(base_node);
         }
     }
@@ -158,7 +152,7 @@ void DictAvl<Key, Value>::Roll(typename DictAvl::AvlNode *base_node) {
 
 template<class Key, class Value>
 void DictAvl<Key, Value>::RollLeft(DictAvl::AvlNode *base_node) {
-    assert(base_node != nullptr && base_node->right_son != nullptr);
+    //assert(base_node != nullptr && base_node->right_son != nullptr);
     AvlNode* father_to_update = base_node->father;
     AvlNode* right_son = base_node->right_son;
     base_node->father = right_son;
@@ -188,7 +182,7 @@ void DictAvl<Key, Value>::RollLeft(DictAvl::AvlNode *base_node) {
 }
 template<class Key, class Value>
 void DictAvl<Key, Value>::RollRight(DictAvl::AvlNode *base_node) {
-    assert(base_node != nullptr && base_node->left_son != nullptr);
+    //assert(base_node != nullptr && base_node->left_son != nullptr);
     AvlNode* father_to_update = base_node->father;
     AvlNode* left_son = base_node->left_son;
     base_node->father = left_son;
@@ -265,13 +259,75 @@ bool DictAvl<Key, Value>::NodeInTree(const DictAvl::AvlNode *root, const DictAvl
 }
 
 template<class Key, class Value>
-void DictAvl<Key, Value>::PrintInOrder(const DictAvl::AvlNode *root, std::vector<Key>* result) {
+void DictAvl<Key, Value>::GetAllValuesInOrder(const DictAvl::AvlNode *root, std::vector<Value>* result) {
     if (root == nullptr)
         return;
     PrintInOrder(root->left_son,result);
-    result->push_back(root->key);
+    result->push_back(root->value);
     std::cout<<"Key:"<<root->key<<"| BF:"<<root->balance_factor<<"| RH:"<<root->right_height<<"| LH:"<<root->left_height<<std::endl;
     PrintInOrder(root->right_son,result);
+}
+
+template<class Key, class Value>
+void DictAvl<Key, Value>::DeleteNodeByPtr(const AvlNode* node_to_delete) {
+    if (node_to_delete == nullptr)
+        return;
+    if (node_to_delete->father == nullptr) { // it's the root
+        delete node_to_delete;
+        root = nullptr;
+        return;
+    }
+    AvlNode* node_to_switch_with = GetNodeToSwitchWith(node_to_delete);
+    if (node_to_delete->father->left_son == node_to_delete)
+        node_to_delete->father->left_son = node_to_switch_with;
+    else
+        node_to_delete->father->right_son = node_to_switch_with;
+    AvlNode* node_to_switch_with_father = node_to_delete->father;
+    if (node_to_switch_with != nullptr) {
+        //assert(node_to_switch_with->father != nullptr);
+        node_to_switch_with_father = node_to_switch_with->father;
+        if (node_to_switch_with->father->right_son == node_to_switch_with)
+            node_to_switch_with->father->right_son = nullptr;
+        else {
+            /*
+             * in this case, the node_to_switch_with is from the left of node_to_delete, and node_to_switch_with doesn't have right sons.
+             */
+            //assert(node_to_switch_with->right_son == nullptr);
+            node_to_switch_with->father->left_son = node_to_switch_with->left_son;
+        }
+        node_to_switch_with->father = node_to_delete->father;
+    }
+    delete node_to_delete;
+    UpdateTreeBottomToTop(node_to_switch_with_father);
+}
+
+template<class Key, class Value>
+typename DictAvl<Key,Value>::AvlNode *DictAvl<Key, Value>::GetNodeToSwitchWith(const typename DictAvl::AvlNode* node_to_delete) {
+    //assert(node_to_delete != nullptr);
+    if (node_to_delete->left_son == nullptr)
+        return node_to_delete->right_son;
+    AvlNode* max_son = node_to_delete->left_son;
+    while (max_son->right_son != nullptr)
+        max_son = max_son->right_son;
+    return max_son;
+}
+
+template<class Key, class Value>
+void DictAvl<Key, Value>::DeleteNode(const Key &key) {
+    DeleteNodeByPtr(GetNodePtrByKey(root,key));
+    assert(CheckIfAVL(root));
+}
+
+template<class Key, class Value>
+typename DictAvl<Key,Value>::AvlNode *DictAvl<Key, Value>::GetNodePtrByKey(AvlNode* root, const Key& key) {
+    if (root == nullptr)
+        return nullptr;
+    if (root->key < key)
+        return GetNodePtrByKey(root->right_son, key);
+    else if (root->key > key)
+        return GetNodePtrByKey(root->left_son, key);
+    else
+        return root;
 }
 
 #endif //WET1_DICT_AVL_H
