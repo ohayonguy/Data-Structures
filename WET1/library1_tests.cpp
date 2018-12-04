@@ -52,18 +52,17 @@ int main() {
     std::cout<<"start!"<<std::endl;
     DictAvl<Key,Value> avl_dict;
     std::vector<Key> inserted_keys;
-    for (int i = 0; i < 10000; i ++) {
+    for (int i = 0; i < 100000; i ++) {
         std::cout<<i<<std::endl;
         Key key = rand();
         inserted_keys.push_back(key);
         //std::cout<<i<<std::endl;
         avl_dict.InsertNode(key,i);
     }
-    for (int i = 0; i < 10000; i ++) {
+    for (int i = 0; i < 100000; i ++) {
         std::cout<<i<<std::endl;
         //std::cout<<i<<std::endl;
-        avl_dict.DeleteNode(inserted_keys.back());
-        inserted_keys.pop_back();
+        avl_dict.DeleteNodeByKey(inserted_keys[i]);
     }
 //    DictAvl<Key,Value>::PrintInOrder(&avl_dict);
     //TODO: the root is not correct. somewhere I need to update it after every insertion.
