@@ -1,9 +1,6 @@
 #include <iostream>
 #include "library1.h"
 #include "dict_list.h"
-#ifdef NDEBUG
-#undef NDEBUG
-#endif
 #include "dict_avl.h"
 #include <list>
 typedef int Key;
@@ -12,7 +9,9 @@ typedef int Value;
 //typedef DictList<Key,Value>::ListNode ListNode;
 using std::cout;
 using std::endl;
-
+#ifdef NDEBUG
+#undef NDEBUG
+#endif
 /*
 void test_Add(DS dataset,int size, int* numbers) {
     StatusType result;
@@ -51,18 +50,11 @@ int main() {
     true_data_set->PrintDict();*/
     std::cout<<"start!"<<std::endl;
     DictAvl<Key,Value> avl_dict;
-    std::vector<Key> inserted_keys;
-    for (int i = 0; i < 2000; i ++) {
-        std::cout<<i<<std::endl;
-        Key key = rand();
-        inserted_keys.push_back(key);
+    for (int i = 0; i < 9999999; i++) {
+        int number_inserted = rand();
         //std::cout<<i<<std::endl;
-        avl_dict.InsertNode(key,i);
-    }
-    for (int i = 0; i < 2000; i ++) {
-        std::cout<<i<<std::endl;
-        //std::cout<<i<<std::endl;
-        avl_dict.DeleteNodeByKey(inserted_keys[i]);
+
+        avl_dict.InsertNode(i,i);
     }
 //    DictAvl<Key,Value>::PrintInOrder(&avl_dict);
     //TODO: the root is not correct. somewhere I need to update it after every insertion.

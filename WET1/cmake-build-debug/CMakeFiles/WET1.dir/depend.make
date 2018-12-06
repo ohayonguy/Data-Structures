@@ -9,4 +9,5 @@ CMakeFiles/WET1.dir/library1_tests.cpp.o: ../dict_avl.h
 CMakeFiles/WET1.dir/library1_tests.cpp.o: ../dict_list.h
 CMakeFiles/WET1.dir/library1_tests.cpp.o: ../library1.h
 CMakeFiles/WET1.dir/library1_tests.cpp.o: ../library1_tests.cpp
+CMakeFiles/WET1.dir/library1_tests.cpp.o: ../previous\ versions/dict_avl.h
 

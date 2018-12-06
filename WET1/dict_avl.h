@@ -4,11 +4,12 @@
 
 #ifndef WET1_DICT_AVL_H
 #define WET1_DICT_AVL_H
-#define NDEBUG
+//#define NDEBUG
 #include <iostream>
 #include <assert.h>
 #include <algorithm>
 #include <vector>
+#include "previous versions/dict_avl.h"
 
 template <class Key, class Value>
 class DictAvl {
@@ -32,13 +33,22 @@ public:
                 balance_factor(0),
                 left_height(0),
                 right_height(0) {};
+        void UpdateNode(AvlNode* father,
+                AvlNode* left_son, AvlNode* right_son, int balance_factor, int left_height, int right_height) {
+            this->father = father;
+            this->left_son = left_son;
+            this->right_son = right_son;
+            this->balance_factor = balance_factor;
+            this->left_height = left_height;
+            this->right_height = right_height;
+        }
     };
     DictAvl() : root(nullptr), size(0) {};
     ~DictAvl();
     AvlNode* InsertNode(const Key& key, const Value& value);
     Value GetValueByKey(const Key& key);
     void DeleteNodeByKey(const Key& key);
-    void DeleteNodeByPtr(const AvlNode* node_to_delete);
+    void DeleteNodeByPtr(AvlNode* node_to_delete);
     int GetSize();
     void PrintDict();
     static void GetAllValuesInOrder(const AvlNode* root, const std::vector<Value>* result);
@@ -52,10 +62,12 @@ private:
     static bool CheckIfAVL(const AvlNode* root);
     static void BSTInsert(AvlNode* root, AvlNode* new_node);
     void Roll(AvlNode* base_node);
+    static bool NodeInTree(const AvlNode* root, const Key& node_key_to_look_for);
     static bool NodeInTree(const AvlNode* root, const AvlNode* node_to_look_for);
-    static AvlNode* GetNodeToSwitchWith(const AvlNode* node_to_delete);
+    static AvlNode* GetNodeToSwitchWith(AvlNode* node_to_delete);
     static AvlNode* GetNodePtrByKey(AvlNode* root, const Key& key);
-    static bool CheckIfSizeIsCorrect(const DictAvl& avl);
+    static void SwitchNodes(AvlNode* node1, AvlNode* node2);
+
 };
 
 template<class Key, class Value>
@@ -129,7 +141,7 @@ void DictAvl<Key, Value>::Roll(typename DictAvl::AvlNode *base_node) {
     assert(abs(base_node->balance_factor)<=2);
     if (base_node->balance_factor == -2) {
         assert(base_node->right_son != nullptr);
-        if (base_node->right_son->balance_factor == -1) {
+        if (base_node->right_son->balance_factor <= 0) {
             RollLeft(base_node);
         } else {
             assert(base_node->right_son->balance_factor >= 0 && base_node->right_son->left_son != nullptr);
@@ -241,9 +253,11 @@ template<class Key, class Value>
 bool DictAvl<Key, Value>::CheckIfAVL(const DictAvl::AvlNode *root) {
     if (root == nullptr)
         return true;
-    if (abs(root->right_height-root->left_height) > 1 || abs(root->balance_factor) > 1)
+    if (abs(root->right_height-root->left_height) > 1 || abs(root->balance_factor) > 1) {
+        std::cout<<root->key<<std::endl;
+        std::cout<<"BF or heights problem"<<std::endl;
         return false;
-
+    }
     if (CheckIfAVL(root->right_son) == false)
         return false;
     return CheckIfAVL(root->left_son); //I splitted the test for the left and right tree in order to potentially
@@ -277,45 +291,57 @@ void DictAvl<Key, Value>::GetAllValuesInOrder(const DictAvl::AvlNode *root, cons
 }
 
 template<class Key, class Value>
-void DictAvl<Key, Value>::DeleteNodeByPtr(const AvlNode* node_to_delete) {
+void DictAvl<Key, Value>::DeleteNodeByPtr(AvlNode* node_to_delete) {
     if (node_to_delete == nullptr)
         return;
     size--;
-    if (node_to_delete->father == nullptr) { // it's the root
-        delete node_to_delete;
-        root = nullptr;
-        return;
-    }
     AvlNode* node_to_switch_with = GetNodeToSwitchWith(node_to_delete);
-    if (node_to_delete->father->left_son == node_to_delete)
-        node_to_delete->father->left_son = node_to_switch_with;
-    else
-        node_to_delete->father->right_son = node_to_switch_with;
-    AvlNode* node_to_switch_with_father = node_to_delete->father;
-    if (node_to_switch_with != nullptr) {
-        //assert(node_to_switch_with->father != nullptr);
-        node_to_switch_with_father = node_to_switch_with->father;
-        if (node_to_switch_with->father->right_son == node_to_switch_with)
-            node_to_switch_with->father->right_son = nullptr;
-        else {
-            /*
-             * in this case, the node_to_switch_with is from the left of node_to_delete, and node_to_switch_with doesn't have right sons.
-             */
-            //assert(node_to_switch_with->right_son == nullptr);
-            node_to_switch_with->father->left_son = node_to_switch_with->left_son;
+    if (node_to_delete == root) {
+            root = node_to_switch_with;
+    }
+    if (node_to_switch_with == nullptr) {
+        node_to_switch_with = node_to_delete;
+    }
+    AvlNode* node_to_update;
+
+    SwitchNodes(node_to_switch_with,node_to_delete);
+    assert(node_to_switch_with != nullptr);
+    if (node_to_switch_with->right_son == node_to_delete) {
+        assert(node_to_switch_with->left_son == nullptr);
+        assert(node_to_delete->father != nullptr);
+        node_to_switch_with->right_son = node_to_delete->right_son;
+        if (node_to_switch_with->right_son != nullptr)
+            node_to_switch_with->right_son->father = node_to_switch_with;
+        node_to_switch_with->left_son = node_to_delete->left_son;
+        if (node_to_switch_with->left_son != nullptr)
+            node_to_switch_with->left_son->father = node_to_switch_with;
+        node_to_update= node_to_switch_with;
+
+    } else {
+        //assert(node_to_switch_with->left_son != nullptr);
+        assert(node_to_delete != nullptr);
+        if (node_to_delete->father != nullptr) {
+            if (node_to_delete->father->right_son == node_to_delete) {
+                node_to_delete->father->right_son = node_to_delete->left_son;
+            } else{
+                node_to_delete->father->left_son = node_to_delete->left_son;
+            }
         }
-        node_to_switch_with->father = node_to_delete->father;
+        if (node_to_delete->left_son != nullptr)
+            node_to_delete->left_son->father = node_to_delete->father;
+        node_to_update = node_to_delete->father;
     }
     delete node_to_delete;
-    UpdateTreeBottomToTop(node_to_switch_with_father);
+    UpdateTreeBottomToTop(node_to_update);
 }
 
 template<class Key, class Value>
-typename DictAvl<Key,Value>::AvlNode *DictAvl<Key, Value>::GetNodeToSwitchWith(const typename
+typename DictAvl<Key,Value>::AvlNode *DictAvl<Key, Value>::GetNodeToSwitchWith(typename
                                                                                 DictAvl::AvlNode* node_to_delete) {
-    //assert(node_to_delete != nullptr);
-    if (node_to_delete->left_son == nullptr)
+    assert(node_to_delete != nullptr);
+    if (node_to_delete->left_son == nullptr) {
         return node_to_delete->right_son;
+    }
     AvlNode* max_son = node_to_delete->left_son;
     while (max_son->right_son != nullptr)
         max_son = max_son->right_son;
@@ -324,15 +350,9 @@ typename DictAvl<Key,Value>::AvlNode *DictAvl<Key, Value>::GetNodeToSwitchWith(c
 
 template<class Key, class Value>
 void DictAvl<Key, Value>::DeleteNodeByKey(const Key &key) {
-    AvlNode* node_to_delete = GetNodePtrByKey(root,key);
-    if (node_to_delete != nullptr) {
-        std::cout<<node_to_delete->key<<std::endl;
-    }
-    try {
-        DeleteNodeByPtr(GetNodePtrByKey(root,key));
-    } catch (...) {
-        std::cout<<"EXCEPTION"<<std::endl;
-    }
+    assert(NodeInTree(root,key));
+    DeleteNodeByPtr(GetNodePtrByKey(root,key));
+    assert(!NodeInTree(root,key));
     assert(CheckIfAVL(root));
 }
 
@@ -367,5 +387,70 @@ Value DictAvl<Key, Value>::GetValueByKey(const Key &key) {
     return GetNodePtrByKey(root,key)->value;
 }
 
+template<class Key, class Value>
+void DictAvl<Key,Value>::SwitchNodes(AvlNode* node1, AvlNode* node2) {
+    if (node1 == nullptr || node2 == nullptr)
+        return;
+    if (node1 == node2)
+        return;
+    AvlNode node1_copy(*node1);
+    AvlNode node2_copy(*node2);
+    if (node2_copy.father == node1) {
+        if (node1_copy.left_son == node2)
+            node2->UpdateNode(node1_copy.father,node1,node1_copy.right_son,
+                              node1_copy.balance_factor,node1_copy.left_height,node1_copy.right_height);
+        else
+            node2->UpdateNode(node1_copy.father,node1_copy.left_son,node1,
+                              node1_copy.balance_factor,node1_copy.left_height,node1_copy.right_height);
+        node1->UpdateNode(node2,node2_copy.left_son,node2_copy.right_son,
+                          node2_copy.balance_factor,node2_copy.left_height,node2_copy.right_height);
+    } else if (node1_copy.father == node2) {
+        if (node2_copy.left_son == node1)
+            node1->UpdateNode(node2_copy.father,node2,node2_copy.right_son,
+                              node2_copy.balance_factor,node2_copy.left_height,node2_copy.right_height);
+        else
+            node1->UpdateNode(node2_copy.father,node2_copy.left_son,node2,
+                              node2_copy.balance_factor,node2_copy.left_height,node2_copy.right_height);
+        node2->UpdateNode(node1,node1_copy.left_son,node1_copy.right_son,
+                          node1_copy.balance_factor,node1_copy.left_height,node1_copy.right_height);
+    } else {
+        node2->UpdateNode(node1_copy.father,node1_copy.left_son,node1_copy.right_son,
+                          node1_copy.balance_factor,node1_copy.left_height,node1_copy.right_height);
+        node1->UpdateNode(node2_copy.father,node2_copy.left_son,node2_copy.right_son,
+                          node2_copy.balance_factor,node2_copy.left_height,node2_copy.right_height);
+    }
+    if (node2->left_son != nullptr && node2->left_son != node1)
+        node2->left_son->father = node2;
+    if (node2->right_son != nullptr && node2->right_son != node1)
+        node2->right_son->father = node2;
+    if (node2->father != nullptr && node2->father != node1) {
+        if (node2->father->left_son == node1)
+            node2->father->left_son = node2;
+        else
+            node2->father->right_son = node2;
+    }
+    if (node1->left_son != nullptr && node1->left_son != node2)
+        node1->left_son->father = node1;
+    if (node1->right_son != nullptr && node1->right_son != node2)
+        node1->right_son->father = node1;
+    if (node1->father != nullptr && node1->father != node2) {
+        if (node1->father->left_son == node2)
+            node1->father->left_son = node1;
+        else
+            node1->father->right_son = node1;
+    }
+}
+
+template<class Key, class Value>
+bool DictAvl<Key, Value>::NodeInTree(const DictAvl::AvlNode *root, const Key &node_key_to_look_for) {
+    if (root == nullptr)
+        return false;
+    else if (root->key == node_key_to_look_for)
+        return true;
+    else if (root->key < node_key_to_look_for)
+        return NodeInTree(root->right_son, node_key_to_look_for);
+    else
+        return NodeInTree(root->left_son, node_key_to_look_for);
+}
 
 #endif //WET1_DICT_AVL_H
