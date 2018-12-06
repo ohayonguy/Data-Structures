@@ -9,7 +9,6 @@
 #include <assert.h>
 #include <algorithm>
 #include <vector>
-#include "previous versions/dict_avl.h"
 
 template <class Key, class Value>
 class DictAvl {
@@ -50,8 +49,8 @@ public:
     void DeleteNodeByKey(const Key& key);
     void DeleteNodeByPtr(AvlNode* node_to_delete);
     int GetSize();
-    void PrintDict();
-    static void GetAllValuesInOrder(const AvlNode* root, const std::vector<Value>* result);
+  //  void PrintDict();
+    Value* GetAllValuesInOrder();
 private:
     AvlNode* root;
     int size;
@@ -67,6 +66,7 @@ private:
     static AvlNode* GetNodeToSwitchWith(AvlNode* node_to_delete);
     static AvlNode* GetNodePtrByKey(AvlNode* root, const Key& key);
     static void SwitchNodes(AvlNode* node1, AvlNode* node2);
+    int FillAllValuesInOrder(Value* values, int index, AvlNode* current_node);
 
 };
 
@@ -81,11 +81,14 @@ typename DictAvl<Key, Value>::AvlNode *DictAvl<Key, Value>::InsertNode(const Key
     BSTInsert(root,new_node);
     assert(NodeInTree(root,new_node));
     UpdateTreeBottomToTop(new_node);
+
     if (!CheckIfAVL(root)) {
         std::cout << "NOT AVL!" << std::endl;
         assert(false);
     }
     //assert(CheckIfAVL(root)); //add a test if the tree is still AVL;
+
+    return new_node;
 }
 
 template<class Key, class Value>
@@ -282,12 +285,21 @@ bool DictAvl<Key, Value>::NodeInTree(const DictAvl::AvlNode *root, const DictAvl
 }
 
 template<class Key, class Value>
-void DictAvl<Key, Value>::GetAllValuesInOrder(const DictAvl::AvlNode *root, const std::vector<Value>* result) {
-    if (root == nullptr)
-        return;
-    PrintInOrder(root->left_son,result);
-    result->push_back(root->value);
-    PrintInOrder(root->right_son,result);
+Value* DictAvl<Key, Value>::GetAllValuesInOrder() {
+    Value* values = new Value[GetSize()];
+    FillAllValuesInOrder(values, 0, root);
+    return values;
+}
+
+template<class Key, class Value>
+int DictAvl<Key, Value>::FillAllValuesInOrder(Value* values, int index, AvlNode* current_node) {
+    if (current_node == nullptr) {
+        return index;
+    }
+    index = FillAllValuesInOrder(values, index, current_node->left_son);
+    values[index++] = current_node->value;
+    index = FillAllValuesInOrder(values, index, current_node->right_son);
+    return index;
 }
 
 template<class Key, class Value>
@@ -372,7 +384,7 @@ template<class Key, class Value>
 int DictAvl<Key, Value>::GetSize() {
     return size;
 }
-
+/*
 template<class Key, class Value>
 void DictAvl<Key, Value>::PrintDict() {
     std::vector<Value> all_values;
@@ -380,7 +392,7 @@ void DictAvl<Key, Value>::PrintDict() {
     for (int i = 0; i < all_values.size(); i++) {
         std::cout<<all_values[i]<<std::endl;
     }
-}
+}*/
 
 template<class Key, class Value>
 Value DictAvl<Key, Value>::GetValueByKey(const Key &key) {
