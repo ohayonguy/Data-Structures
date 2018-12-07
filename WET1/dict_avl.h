@@ -57,29 +57,126 @@ public:
      * Constructor.
      */
     DictAvl() : root(nullptr), size(0) {};
+    /**
+     * Destructor
+     */
     ~DictAvl();
+    /**
+     * Inserts a new node to the DictAvl, with the given key and value.
+     * @param key is the key of the new node.
+     * @param value is the value of the new node.
+     * @return a pointer to the new node inserted.
+     * Throws std::badalloc if memory allocation fails.
+     */
     AvlNode* InsertNode(const Key& key, const Value& value);
+    /**
+     * Searches for the node with the given key, and returns it's value.
+     * @param key is the key of the node to look for.
+     * @return the value of the node.
+     * Throws KeyNotFound if the key is not in the DictList.
+     */
     Value GetValueByKey(const Key& key);
+    /**
+     * Search for the node to delete by the given key, and then delete the node by using DeleteNodeByPtr.
+     * @param key the key of the node that needs to be deleted.
+     * Throws KeyNotFound if the key is not in the DictList.
+     */
     void DeleteNodeByKey(const Key& key);
+    /**
+     * deletes a avl node by the given pointer. Updates the list accordingly.
+     * @param node_to_delete the node to delete.
+     */
     void DeleteNodeByPtr(AvlNode* node_to_delete);
+    /**
+     * @return the size of the dictionary (number of nodes).
+     */
     int GetSize();
-  //  void PrintDict();
+    /**
+     * @return an array with all the values within all the nodes in the avl tree. The returned array is inorder,
+     * which means that it's sorted by the keys.
+     */
     Value* GetAllValuesInOrder();
 private:
+    /**
+     * the root of the avl tree
+     */
     AvlNode* root;
+    /**
+     * The number of nodes in the tree
+     */
     int size;
+    /**
+     * Receives a bottom_node and updates the balance factors and heights from the bottom_node all the way up to the
+     * root.
+     * @param bottom_node is the node to start the update from.
+     */
     void UpdateTreeBottomToTop(AvlNode* bottom_node);
+    /**
+     * Rolls the given AvlNode to the right, and updates the son's and father's accordingly (if the exist).
+     */
     void RollRight(AvlNode*);
+    /**
+     * Rolls the given AvlNode to the left, and updates the son's and father's accordingly (if the exist).
+     */
     void RollLeft(AvlNode*);
-    static void DeleteTree(const AvlNode* node_to_delete);
+    /**
+     * Deletes the whole tree, starting from the given root.
+     */
+    static void DeleteTree(const AvlNode* root);
+    /**
+     * Checks if the tree is AVL, starting from root.
+     * @param root is the node to start the check from.
+     * @return true if AVL, false otherwise.
+     */
     static bool CheckIfAVL(const AvlNode* root);
+    /**
+     * Performs basit BST insert (Binary Search Tree insert). Looks for the right place of insertion based on the
+     * key of the new_node, inserts the new_node, and updates it's father.
+     * @param root is the root of the tree to insert into.
+     * @param new_node is the node to insert
+     * Throws KeyAlreadyExists if there's already a node with the new node's key.
+     */
     static void BSTInsert(AvlNode* root, AvlNode* new_node);
+    /**
+     * Rolls the node base on it's balance factor and it's son's balance factor (like we learned in class). Uses
+     * RollLeft and RollRight functions.
+     * @param base_node is the node to roll.
+     * Doesn't perform a roll if not needed!
+     */
     void Roll(AvlNode* base_node);
+    /**
+     * Checks if the node is in the tree based on the given key.
+     * @param root is the root of the tree
+     * @param node_key_to_look_for is th key to look for.
+     * @return true if the node is in the tree. false otherwise.
+     */
     static bool NodeInTree(const AvlNode* root, const Key& node_key_to_look_for);
+    /**
+     * Checks if the node is in the tree based on the given node pointer.
+     * @param root is the root of the tree.
+     * @param node_to_look_for is the pointer of the node to look for.
+     * @return true if the node is in the tree. False otherwise.
+     */
     static bool NodeInTree(const AvlNode* root, const AvlNode* node_to_look_for);
+    /**
+     * In case of deleteion, the function will find the node to switch with the node that needs to be deleted,
+     * like we learned in class.
+     * @param node_to_delete
+     * @return a pointer to the node to switch with.
+     */
     static AvlNode* GetNodeToSwitchWith(AvlNode* node_to_delete);
+    /**
+     * Finds the node by the given key, and returns it's pointer.
+     * Throws KeyNotFound if the key is not found in the tree.
+     */
     static AvlNode* GetNodePtrByKey(AvlNode* root, const Key& key);
+    /**
+     * Switches two nodes, but not their keys and values (switches only father and sons).
+     */
     static void SwitchNodes(AvlNode* node1, AvlNode* node2);
+    /**
+     * Fills the values array with all the values in order (based on the keys).
+     */
     int FillAllValuesInOrder(Value* values, int index, AvlNode* current_node);
 };
 
@@ -249,7 +346,7 @@ DictAvl<Key, Value>::~DictAvl() {
 }
 
 template<class Key, class Value>
-void DictAvl<Key, Value>::DeleteTree(const DictAvl::AvlNode *node_to_delete) {
+void DictAvl<Key, Value>::DeleteTree(const DictAvl::AvlNode *root) {
     if (node_to_delete == nullptr)
         return;
     DeleteTree(node_to_delete->right_son);

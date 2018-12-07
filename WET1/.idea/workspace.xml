@@ -12,33 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a247ce2-6f8a-4d11-8dca-90503b30c6e1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/tests_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/library1_list.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/library1_list.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/library1_tests.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/library1_tests.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/WET1.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/WET1.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/WET1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/WET1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict_avl.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dict_avl.h" beforeDir="false" afterPath="$PROJECT_DIR$/dict_avl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict_list.h" beforeDir="false" afterPath="$PROJECT_DIR$/dict_list.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image.h" beforeDir="false" afterPath="$PROJECT_DIR$/image.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_database.h" beforeDir="false" afterPath="$PROJECT_DIR$/image_database.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library1.h" beforeDir="false" afterPath="$PROJECT_DIR$/library1.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library1_avl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/library1_avl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library1_list.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/library1_list.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,11 +29,36 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/dict_avl.h">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="253">
-                    <caret line="20" column="73" selection-start-line="20" selection-start-column="73" selection-end-line="20" selection-end-column="73" />
+                  <state relative-caret-position="1071">
+                    <caret line="176" column="4" selection-start-line="176" selection-start-column="4" selection-end-line="176" selection-end-column="4" />
                     <folding>
                       <element signature="e#248#349#0" />
+                      <element signature="e#404#505#0" />
                       <element signature="e#459#634#0" />
+                      <element signature="e#353#1310#1" />
+                      <element signature="e#1710#1741#0" />
+                      <element signature="e#1789#1818#0" />
+                      <element signature="e#1839#1911#0" />
+                      <element signature="e#2191#2428#0" />
+                      <element signature="e#2474#2716#0" />
+                      <element signature="e#2763#2902#0" />
+                      <element signature="e#2957#3029#0" />
+                      <element signature="e#3053#3148#0" />
+                      <element signature="e#3274#3317#0" />
+                      <element signature="e#3341#3391#0" />
+                      <element signature="e#3410#3495#0" />
+                      <element signature="e#3674#3793#0" />
+                      <element signature="e#3828#3947#0" />
+                      <element signature="e#3980#4099#0" />
+                      <element signature="e#4106#4159#0" />
+                      <element signature="e#4326#4407#0" />
+                      <element signature="e#4778#5033#0" />
+                      <element signature="e#5073#5165#0" />
+                      <element signature="e#5385#5472#0" />
+                      <element signature="e#5754#5953#0" />
+                      <element signature="e#6062#6172#0" />
+                      <element signature="e#6275#6376#0" />
+                      <element signature="e#6442#6461#0" />
                       <element signature="e#2452#2476#0" expanded="true" />
                       <element signature="e#2909#2933#0" expanded="true" />
                       <element signature="e#3593#3617#0" expanded="true" />
@@ -119,12 +118,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dict_list.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="17" selection-end-column="7" />
+            <state relative-caret-position="338">
+              <caret line="137" column="19" lean-forward="true" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
               <folding>
                 <element signature="e#120#144#0" expanded="true" />
                 <element signature="e#174#193#0" />
                 <element signature="e#224#243#0" />
+                <element signature="e#248#591#1" />
                 <element signature="e#574#593#0" />
                 <element signature="e#619#638#0" />
                 <element signature="e#619#894#0" />
@@ -341,12 +341,12 @@
       <workItem from="1543862935557" duration="5312000" />
       <workItem from="1543923181107" duration="60382000" />
       <workItem from="1544113312664" duration="38000" />
-      <workItem from="1544184852099" duration="16841000" />
+      <workItem from="1544184852099" duration="18509000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153976000" />
+    <option name="totallyTimeSpent" value="155644000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2567" y="-608" width="1477" height="797" extended-state="6" />
@@ -545,12 +545,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dict_list.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="17" selection-end-column="7" />
+        <state relative-caret-position="338">
+          <caret line="137" column="19" lean-forward="true" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
           <folding>
             <element signature="e#120#144#0" expanded="true" />
             <element signature="e#174#193#0" />
             <element signature="e#224#243#0" />
+            <element signature="e#248#591#1" />
             <element signature="e#574#593#0" />
             <element signature="e#619#638#0" />
             <element signature="e#619#894#0" />
@@ -576,11 +577,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dict_avl.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="20" column="73" selection-start-line="20" selection-start-column="73" selection-end-line="20" selection-end-column="73" />
+        <state relative-caret-position="1071">
+          <caret line="176" column="4" selection-start-line="176" selection-start-column="4" selection-end-line="176" selection-end-column="4" />
           <folding>
             <element signature="e#248#349#0" />
+            <element signature="e#404#505#0" />
             <element signature="e#459#634#0" />
+            <element signature="e#353#1310#1" />
+            <element signature="e#1710#1741#0" />
+            <element signature="e#1789#1818#0" />
+            <element signature="e#1839#1911#0" />
+            <element signature="e#2191#2428#0" />
+            <element signature="e#2474#2716#0" />
+            <element signature="e#2763#2902#0" />
+            <element signature="e#2957#3029#0" />
+            <element signature="e#3053#3148#0" />
+            <element signature="e#3274#3317#0" />
+            <element signature="e#3341#3391#0" />
+            <element signature="e#3410#3495#0" />
+            <element signature="e#3674#3793#0" />
+            <element signature="e#3828#3947#0" />
+            <element signature="e#3980#4099#0" />
+            <element signature="e#4106#4159#0" />
+            <element signature="e#4326#4407#0" />
+            <element signature="e#4778#5033#0" />
+            <element signature="e#5073#5165#0" />
+            <element signature="e#5385#5472#0" />
+            <element signature="e#5754#5953#0" />
+            <element signature="e#6062#6172#0" />
+            <element signature="e#6275#6376#0" />
+            <element signature="e#6442#6461#0" />
             <element signature="e#2452#2476#0" expanded="true" />
             <element signature="e#2909#2933#0" expanded="true" />
             <element signature="e#3593#3617#0" expanded="true" />
