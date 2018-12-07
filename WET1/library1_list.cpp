@@ -10,7 +10,16 @@
 typedef int Key;
 typedef void* Value;
 void *Init() {
-    return new DictList<Key,Value>();
+    DictList<Key, Value>* new_dict = nullptr;
+    try {
+        new_dict = new DictList<Key, Value>();
+    } catch (std::bad_alloc&) {
+        return NULL;
+    } catch (...) {
+        delete new_dict;
+        return NULL;
+    }
+    return new_dict;
 }
 
 

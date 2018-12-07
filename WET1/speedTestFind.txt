@@ -1,0 +1,302 @@
+init
+add 1 100 0
+findWithTiming 1 100
+findWithTiming 1 100
+add 101 200 1
+findWithTiming 1 100
+findWithTiming 101 200
+add 201 300 2
+findWithTiming 1 100
+findWithTiming 201 300
+add 301 400 3
+findWithTiming 1 100
+findWithTiming 301 400
+add 401 500 4
+findWithTiming 1 100
+findWithTiming 401 500
+add 501 600 5
+findWithTiming 1 100
+findWithTiming 501 600
+add 601 700 6
+findWithTiming 1 100
+findWithTiming 601 700
+add 701 800 7
+findWithTiming 1 100
+findWithTiming 701 800
+add 801 900 8
+findWithTiming 1 100
+findWithTiming 801 900
+add 901 1000 9
+findWithTiming 1 100
+findWithTiming 901 1000
+add 1001 1100 10
+findWithTiming 1 100
+findWithTiming 1001 1100
+add 1101 1200 11
+findWithTiming 1 100
+findWithTiming 1101 1200
+add 1201 1300 12
+findWithTiming 1 100
+findWithTiming 1201 1300
+add 1301 1400 13
+findWithTiming 1 100
+findWithTiming 1301 1400
+add 1401 1500 14
+findWithTiming 1 100
+findWithTiming 1401 1500
+add 1501 1600 15
+findWithTiming 1 100
+findWithTiming 1501 1600
+add 1601 1700 16
+findWithTiming 1 100
+findWithTiming 1601 1700
+add 1701 1800 17
+findWithTiming 1 100
+findWithTiming 1701 1800
+add 1801 1900 18
+findWithTiming 1 100
+findWithTiming 1801 1900
+add 1901 2000 19
+findWithTiming 1 100
+findWithTiming 1901 2000
+add 2001 2100 20
+findWithTiming 1 100
+findWithTiming 2001 2100
+add 2101 2200 21
+findWithTiming 1 100
+findWithTiming 2101 2200
+add 2201 2300 22
+findWithTiming 1 100
+findWithTiming 2201 2300
+add 2301 2400 23
+findWithTiming 1 100
+findWithTiming 2301 2400
+add 2401 2500 24
+findWithTiming 1 100
+findWithTiming 2401 2500
+add 2501 2600 25
+findWithTiming 1 100
+findWithTiming 2501 2600
+add 2601 2700 26
+findWithTiming 1 100
+findWithTiming 2601 2700
+add 2701 2800 27
+findWithTiming 1 100
+findWithTiming 2701 2800
+add 2801 2900 28
+findWithTiming 1 100
+findWithTiming 2801 2900
+add 2901 3000 29
+findWithTiming 1 100
+findWithTiming 2901 3000
+add 3001 3100 30
+findWithTiming 1 100
+findWithTiming 3001 3100
+add 3101 3200 31
+findWithTiming 1 100
+findWithTiming 3101 3200
+add 3201 3300 32
+findWithTiming 1 100
+findWithTiming 3201 3300
+add 3301 3400 33
+findWithTiming 1 100
+findWithTiming 3301 3400
+add 3401 3500 34
+findWithTiming 1 100
+findWithTiming 3401 3500
+add 3501 3600 35
+findWithTiming 1 100
+findWithTiming 3501 3600
+add 3601 3700 36
+findWithTiming 1 100
+findWithTiming 3601 3700
+add 3701 3800 37
+findWithTiming 1 100
+findWithTiming 3701 3800
+add 3801 3900 38
+findWithTiming 1 100
+findWithTiming 3801 3900
+add 3901 4000 39
+findWithTiming 1 100
+findWithTiming 3901 4000
+add 4001 4100 40
+findWithTiming 1 100
+findWithTiming 4001 4100
+add 4101 4200 41
+findWithTiming 1 100
+findWithTiming 4101 4200
+add 4201 4300 42
+findWithTiming 1 100
+findWithTiming 4201 4300
+add 4301 4400 43
+findWithTiming 1 100
+findWithTiming 4301 4400
+add 4401 4500 44
+findWithTiming 1 100
+findWithTiming 4401 4500
+add 4501 4600 45
+findWithTiming 1 100
+findWithTiming 4501 4600
+add 4601 4700 46
+findWithTiming 1 100
+findWithTiming 4601 4700
+add 4701 4800 47
+findWithTiming 1 100
+findWithTiming 4701 4800
+add 4801 4900 48
+findWithTiming 1 100
+findWithTiming 4801 4900
+add 4901 5000 49
+findWithTiming 1 100
+findWithTiming 4901 5000
+add 5001 5100 50
+findWithTiming 1 100
+findWithTiming 5001 5100
+add 5101 5200 51
+findWithTiming 1 100
+findWithTiming 5101 5200
+add 5201 5300 52
+findWithTiming 1 100
+findWithTiming 5201 5300
+add 5301 5400 53
+findWithTiming 1 100
+findWithTiming 5301 5400
+add 5401 5500 54
+findWithTiming 1 100
+findWithTiming 5401 5500
+add 5501 5600 55
+findWithTiming 1 100
+findWithTiming 5501 5600
+add 5601 5700 56
+findWithTiming 1 100
+findWithTiming 5601 5700
+add 5701 5800 57
+findWithTiming 1 100
+findWithTiming 5701 5800
+add 5801 5900 58
+findWithTiming 1 100
+findWithTiming 5801 5900
+add 5901 6000 59
+findWithTiming 1 100
+findWithTiming 5901 6000
+add 6001 6100 60
+findWithTiming 1 100
+findWithTiming 6001 6100
+add 6101 6200 61
+findWithTiming 1 100
+findWithTiming 6101 6200
+add 6201 6300 62
+findWithTiming 1 100
+findWithTiming 6201 6300
+add 6301 6400 63
+findWithTiming 1 100
+findWithTiming 6301 6400
+add 6401 6500 64
+findWithTiming 1 100
+findWithTiming 6401 6500
+add 6501 6600 65
+findWithTiming 1 100
+findWithTiming 6501 6600
+add 6601 6700 66
+findWithTiming 1 100
+findWithTiming 6601 6700
+add 6701 6800 67
+findWithTiming 1 100
+findWithTiming 6701 6800
+add 6801 6900 68
+findWithTiming 1 100
+findWithTiming 6801 6900
+add 6901 7000 69
+findWithTiming 1 100
+findWithTiming 6901 7000
+add 7001 7100 70
+findWithTiming 1 100
+findWithTiming 7001 7100
+add 7101 7200 71
+findWithTiming 1 100
+findWithTiming 7101 7200
+add 7201 7300 72
+findWithTiming 1 100
+findWithTiming 7201 7300
+add 7301 7400 73
+findWithTiming 1 100
+findWithTiming 7301 7400
+add 7401 7500 74
+findWithTiming 1 100
+findWithTiming 7401 7500
+add 7501 7600 75
+findWithTiming 1 100
+findWithTiming 7501 7600
+add 7601 7700 76
+findWithTiming 1 100
+findWithTiming 7601 7700
+add 7701 7800 77
+findWithTiming 1 100
+findWithTiming 7701 7800
+add 7801 7900 78
+findWithTiming 1 100
+findWithTiming 7801 7900
+add 7901 8000 79
+findWithTiming 1 100
+findWithTiming 7901 8000
+add 8001 8100 80
+findWithTiming 1 100
+findWithTiming 8001 8100
+add 8101 8200 81
+findWithTiming 1 100
+findWithTiming 8101 8200
+add 8201 8300 82
+findWithTiming 1 100
+findWithTiming 8201 8300
+add 8301 8400 83
+findWithTiming 1 100
+findWithTiming 8301 8400
+add 8401 8500 84
+findWithTiming 1 100
+findWithTiming 8401 8500
+add 8501 8600 85
+findWithTiming 1 100
+findWithTiming 8501 8600
+add 8601 8700 86
+findWithTiming 1 100
+findWithTiming 8601 8700
+add 8701 8800 87
+findWithTiming 1 100
+findWithTiming 8701 8800
+add 8801 8900 88
+findWithTiming 1 100
+findWithTiming 8801 8900
+add 8901 9000 89
+findWithTiming 1 100
+findWithTiming 8901 9000
+add 9001 9100 90
+findWithTiming 1 100
+findWithTiming 9001 9100
+add 9101 9200 91
+findWithTiming 1 100
+findWithTiming 9101 9200
+add 9201 9300 92
+findWithTiming 1 100
+findWithTiming 9201 9300
+add 9301 9400 93
+findWithTiming 1 100
+findWithTiming 9301 9400
+add 9401 9500 94
+findWithTiming 1 100
+findWithTiming 9401 9500
+add 9501 9600 95
+findWithTiming 1 100
+findWithTiming 9501 9600
+add 9601 9700 96
+findWithTiming 1 100
+findWithTiming 9601 9700
+add 9701 9800 97
+findWithTiming 1 100
+findWithTiming 9701 9800
+add 9801 9900 98
+findWithTiming 1 100
+findWithTiming 9801 9900
+add 9901 10000 99
+findWithTiming 1 100
+findWithTiming 9901 10000
+quit

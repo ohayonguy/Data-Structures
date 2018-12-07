@@ -13,8 +13,18 @@
 template <class Key, class Value>
 class DictAvl {
 public:
+    /**
+     * An inherited exception class to specify that a key is not found in the dictionary.
+     */
     class KeyNotFound : public std::exception {};
+    /**
+     * An inherited exception class to specify that a key already exists in the dictionary.
+     */
     class KeyAlreadyExists : public std::exception {};
+    /**
+     * A struct which contains all the needed values of one node in the dictionary (key, value, a pointer to the next
+     * node, and a pointer to the last node).
+     */
     struct AvlNode {
         Value value;
         Key key;
@@ -43,6 +53,9 @@ public:
             this->right_height = right_height;
         }
     };
+    /**
+     * Constructor.
+     */
     DictAvl() : root(nullptr), size(0) {};
     ~DictAvl();
     AvlNode* InsertNode(const Key& key, const Value& value);

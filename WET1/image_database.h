@@ -23,7 +23,7 @@ class ImageDatabase {
 	Image* FindImage(int imageID) {
 		try {
 			return images.GetValueByKey(imageID).get();
-		} catch (KeyNotFound) {
+		} catch (KeyNotFound&) {
 			throw ImageDoesNotExist();
 		}
 	}

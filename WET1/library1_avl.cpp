@@ -9,7 +9,16 @@
 typedef int Key;
 typedef void* Value;
 void *Init() {
-    return new DictAvl<Key,Value>();
+    DictAvl<Key, Value>* new_dict = nullptr;
+    try {
+        new_dict = new DictAvl<Key, Value>();
+    } catch (std::bad_alloc&) {
+        return NULL;
+    } catch (...) {
+        delete new_dict;
+        return NULL;
+    }
+    return new_dict;
 }
 
 

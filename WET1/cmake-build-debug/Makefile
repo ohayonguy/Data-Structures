@@ -123,6 +123,33 @@ WET1/fast:
 	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/build
 .PHONY : WET1/fast
 
+library1_avl.o: library1_avl.cpp.o
+
+.PHONY : library1_avl.o
+
+# target to build an object file
+library1_avl.cpp.o:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_avl.cpp.o
+.PHONY : library1_avl.cpp.o
+
+library1_avl.i: library1_avl.cpp.i
+
+.PHONY : library1_avl.i
+
+# target to preprocess a source file
+library1_avl.cpp.i:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_avl.cpp.i
+.PHONY : library1_avl.cpp.i
+
+library1_avl.s: library1_avl.cpp.s
+
+.PHONY : library1_avl.s
+
+# target to generate assembly for a file
+library1_avl.cpp.s:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_avl.cpp.s
+.PHONY : library1_avl.cpp.s
+
 library1_list.o: library1_list.cpp.o
 
 .PHONY : library1_list.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... WET1"
 	@echo "... edit_cache"
+	@echo "... library1_avl.o"
+	@echo "... library1_avl.i"
+	@echo "... library1_avl.s"
 	@echo "... library1_list.o"
 	@echo "... library1_list.i"
 	@echo "... library1_list.s"

@@ -15,16 +15,18 @@ algorithm
 -
 vector
 -
-previous versions/dict_avl.h
-/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/previous versions/dict_avl.h
 
 /cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/dict_list.h
 iostream
 -
-vector
--
 
 /cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1.h
+
+/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1_list.cpp
+library1.h
+/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1.h
+dict_list.h
+/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/dict_list.h
 
 /cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1_tests.cpp
 iostream
@@ -36,13 +38,5 @@ dict_list.h
 dict_avl.h
 /cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/dict_avl.h
 list
--
-
-/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/previous versions/dict_avl.h
-iostream
--
-assert.h
--
-algorithm
 -
 

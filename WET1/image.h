@@ -33,8 +33,21 @@ public:
 		segments(new Segment*[num_of_segments]),
 		unlabeled_segments(DictList<int, int>()) {
 		for (int i = 0; i < num_of_segments; ++i) {
-			ListNode* segment_node = unlabeled_segments.InsertNode(i, i);
-			segments[i] = new Segment(0, segment_node);
+			segments[i] = nullptr; // in case of future bad alloc
+		}
+
+		try {
+
+			for (int i = 0; i < num_of_segments; ++i) {
+				ListNode* segment_node = unlabeled_segments.InsertNode(i, i);
+				segments[i] = new Segment(0, segment_node);
+			}
+		} catch (std::bad_alloc& e) {
+			for (int i = 0; i < num_of_segments; ++i) {
+				delete segments[i];
+			}
+			delete[] segments;
+			throw e;
 		}
 	}
 	~Image() {
@@ -106,11 +119,17 @@ public:
 		if (unlabeled == nullptr) {
 			throw std::bad_alloc();
 		}
-		for (int i = 0, j=0; i < num_of_segments; ++i) {
-			if (! segments[i]->IsLabeled()) {
-				unlabeled[j++] = i;
-			}
+		int* unlabeled_values = nullptr;
+		try {
+			unlabeled_values = unlabeled_segments.GetAllValues(); // allocated by new
+		} catch (std::bad_alloc& e) { // in case GetAllValuesInOrder throws
+			free(unlabeled);
+			throw e;
 		}
+		for (int i = 0; i < CountUnlabeled(); ++i) {
+			unlabeled[i] = unlabeled_values[i];
+		}
+		delete unlabeled_values;
 		return unlabeled;
 	}
 

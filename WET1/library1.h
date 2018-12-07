@@ -17,7 +17,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#define AVL_LIB // Here we choose if to use avl implementation or list implementation.
+
 /* Return Values
  * ----------------------------------- */
 typedef enum {
