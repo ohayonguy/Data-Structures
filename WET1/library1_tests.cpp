@@ -49,19 +49,27 @@ int main() {
     test_Add(dataset,size,numbers);
     DictList<Key,Value>* true_data_set = (DictList<Key,Value>*)dataset;
     true_data_set->PrintDict();*/
+    srand(time(NULL));
     std::cout<<"start!"<<std::endl;
     DictAvl<Key,Value> avl_dict;
     std::vector<Key> inserted_keys;
-    for (int i = 0; i < 2000; i ++) {
+    for (int i = 0; i < 10000; i ++) {
         std::cout<<i<<std::endl;
         Key key = rand();
+
+        if (std::find(inserted_keys.begin(), inserted_keys.end(), key) != inserted_keys.end()) {
+            --i;
+            continue;
+        }
+
         inserted_keys.push_back(key);
         //std::cout<<i<<std::endl;
         avl_dict.InsertNode(key,i);
     }
-    for (int i = 0; i < 2000; i ++) {
-        std::cout<<i<<std::endl;
-        //std::cout<<i<<std::endl;
+    std::random_shuffle(inserted_keys.begin(),inserted_keys.end());
+    for (int i = 0; i < 10000; i ++) {
+        std::cout<<10000 - i << " - " << inserted_keys[i] <<std::endl;
+
         avl_dict.DeleteNodeByKey(inserted_keys[i]);
     }
 //    DictAvl<Key,Value>::PrintInOrder(&avl_dict);
