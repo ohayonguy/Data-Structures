@@ -5,11 +5,12 @@
 #ifndef WET1_DICT_LIST_H
 #define WET1_DICT_LIST_H
 #include <iostream>
-#include <vector>
 template <class Key, class Value>
 class DictList {
 public:
     class KeyNotFound : public std::exception {};
+
+
     struct ListNode {
         Value value;
         Key key;
@@ -22,6 +23,8 @@ public:
                 next(next),
                 previous(previous){};
     };
+
+
     DictList() : head(nullptr), size(0) {};
     ~DictList() {
         ListNode* current_node = head;
@@ -58,19 +61,24 @@ public:
             temp_previous->next = temp_next;
         else // If we got here it means that node_to_delete was the head, so we need to update the head ptr.
             head = temp_next;
-        size--;
+        --size;
     }
     int GetSize() {
         return size;
     }
-    void PrintDict() {
-        ListNode* current = head;
-        while (current != nullptr) {
-            std::cout << *((int*)(current->value)) << std::endl;
-            current = current->next;
-        }
+
+    Value* GetAllValues() {
+      Value* values = new Value[GetSize()];
+      ListNode* current_node = head;
+      int index = 0;
+
+      while (current_node != nullptr) {
+        values[index++] = current_node->value;
+        current_node = current_node->next;
+      }
+
+      return values;
     }
-    static void GetAllValuesInOrder(const ListNode* head,const std::vector<Value>* result);
 private:
     /**
      * Find a node by a given key and return a pointer to that node.
@@ -90,14 +98,5 @@ private:
     ListNode* head;
     int size;
 };
-
-template<class Key, class Value>
-void DictList<Key, Value>::GetAllValuesInOrder(const DictList::ListNode *head,const std::vector<Value> *result) {
-    ListNode* next_node = head;
-    while (next_node != nullptr) {
-        result->push_back(next_node->value);
-        next_node = next_node->next;
-    }
-}
 
 #endif //WET1_DICT_LIST_H
