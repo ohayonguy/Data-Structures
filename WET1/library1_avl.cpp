@@ -1,25 +1,24 @@
 //
-// Created by guyoe on 30-Nov-18.
+// Created by guyoe on 07-Dec-18.
 //
 
-
 #include "library1.h"
-#ifdef LIST_LIB
-#include "dict_list.h"
+#ifdef AVL_LIB
+#include "dict_avl.h"
 
 typedef int Key;
 typedef void* Value;
 void *Init() {
-    return new DictList<Key,Value>();
+    return new DictAvl<Key,Value>();
 }
 
 
 StatusType Add(void *DS, int key, void* value, void** node) {
     if (DS == NULL || value == NULL)
         return INVALID_INPUT;
-    DictList<Key,Value>* dict_list = (DictList<Key,Value>*)DS;
+    DictAvl<Key,Value>* dict_avl = (DictAvl<Key,Value>*)DS;
     try {
-        *node = (void*) dict_list->InsertNode(key, value);
+        *node = (void*)dict_avl->InsertNode(key, value);
     } catch(std::bad_alloc&) {
         return ALLOCATION_ERROR;
     } catch(...) {
@@ -32,12 +31,12 @@ StatusType Add(void *DS, int key, void* value, void** node) {
 StatusType Find(void *DS, int key, void** value) {
     if (value == NULL || DS == NULL)
         return INVALID_INPUT;
-    DictList<Key,Value>* dict_list = (DictList<Key,Value>*)DS;
+    DictAvl<Key,Value>* dict_avl = (DictAvl<Key,Value>*)DS;
     try {
-        *value = dict_list->GetValueByKey(key);
+        *value = dict_avl->GetValueByKey(key);
     } catch (std::bad_alloc&) {
         return ALLOCATION_ERROR;
-    } catch (DictList<Key,Value>::KeyNotFound&) {
+    } catch (DictAvl<Key,Value>::KeyNotFound&) {
         return FAILURE;
     } catch (...) {
         throw;
@@ -49,12 +48,12 @@ StatusType Find(void *DS, int key, void** value) {
 StatusType Delete(void *DS, int key) {
     if (DS == NULL)
         return INVALID_INPUT;
-    DictList<Key,Value>* dict_list = (DictList<Key,Value>*)DS;
+    DictAvl<Key,Value>* dict_avl = (DictAvl<Key,Value>*)DS;
     try {
-        dict_list->DeleteNodeByKey(key);
+        dict_avl->DeleteNodeByKey(key);
     } catch (std::bad_alloc&) {
         return ALLOCATION_ERROR;
-    } catch (DictList<Key,Value>::KeyNotFound&) {
+    } catch (DictAvl<Key,Value>::KeyNotFound&) {
         return FAILURE;
     } catch (...) {
         throw;
@@ -66,9 +65,9 @@ StatusType Delete(void *DS, int key) {
 StatusType DeleteByPointer(void *DS, void* p) {
     if (DS == NULL || p == NULL)
         return INVALID_INPUT;
-    DictList<Key,Value>* dict_list = (DictList<Key,Value>*)DS;
+    DictAvl<Key,Value>* dict_avl = (DictAvl<Key,Value>*)DS;
     try {
-        dict_list->DeleteNodeByPtr((DictList<Key,Value>::ListNode*)p);
+        dict_avl->DeleteNodeByPtr((DictAvl<Key,Value>::AvlNode*)p);
     } catch (std::bad_alloc&) {
         return ALLOCATION_ERROR;
     } catch (...) {
@@ -81,9 +80,9 @@ StatusType DeleteByPointer(void *DS, void* p) {
 StatusType Size(void *DS, int *n) {
     if (DS == NULL || n == NULL)
         return INVALID_INPUT;
-    DictList<Key,Value>* dict_list = (DictList<Key,Value>*)DS;
+    DictAvl<Key,Value>* dict_avl = (DictAvl<Key,Value>*)DS;
     try {
-        *n = dict_list->GetSize();
+        *n = dict_avl->GetSize();
     } catch (std::bad_alloc&) {
         return ALLOCATION_ERROR;
     } catch (...) {
@@ -96,7 +95,7 @@ StatusType Size(void *DS, int *n) {
 void Quit(void** DS) {
     if (DS == NULL || *DS == NULL)
         return;
-    delete *((DictList<Key,Value>**)DS);
+    delete *((DictAvl<Key,Value>**)DS);
     *DS = NULL;
     return;
 }

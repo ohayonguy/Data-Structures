@@ -14,6 +14,7 @@ template <class Key, class Value>
 class DictAvl {
 public:
     class KeyNotFound : public std::exception {};
+    class KeyAlreadyExists : public std::exception {};
     struct AvlNode {
         Value value;
         Key key;
@@ -67,7 +68,6 @@ private:
     static AvlNode* GetNodePtrByKey(AvlNode* root, const Key& key);
     static void SwitchNodes(AvlNode* node1, AvlNode* node2);
     int FillAllValuesInOrder(Value* values, int index, AvlNode* current_node);
-
 };
 
 template<class Key, class Value>
@@ -81,13 +81,7 @@ typename DictAvl<Key, Value>::AvlNode *DictAvl<Key, Value>::InsertNode(const Key
     BSTInsert(root,new_node);
     assert(NodeInTree(root,new_node));
     UpdateTreeBottomToTop(new_node);
-
-    if (!CheckIfAVL(root)) {
-        std::cout << "NOT AVL!" << std::endl;
-        assert(false);
-    }
-    //assert(CheckIfAVL(root)); //add a test if the tree is still AVL;
-
+    assert(CheckIfAVL(root));
     return new_node;
 }
 
@@ -109,7 +103,7 @@ void DictAvl<Key, Value>::BSTInsert(AvlNode* root, DictAvl::AvlNode *new_node) {
         else
             BSTInsert(root->left_son, new_node);
     } else {
-        assert(false); // the key is already inserted!
+        throw KeyAlreadyExists();
     }
 }
 
@@ -330,7 +324,6 @@ void DictAvl<Key, Value>::DeleteNodeByPtr(AvlNode* node_to_delete) {
         node_to_update= node_to_switch_with;
 
     } else {
-        //assert(node_to_switch_with->left_son != nullptr);
         assert(node_to_delete != nullptr);
         if (node_to_delete->father != nullptr) {
             if (node_to_delete->father->right_son == node_to_delete) {
@@ -384,15 +377,6 @@ template<class Key, class Value>
 int DictAvl<Key, Value>::GetSize() {
     return size;
 }
-/*
-template<class Key, class Value>
-void DictAvl<Key, Value>::PrintDict() {
-    std::vector<Value> all_values;
-    GetAllValuesInOrder(root,all_values);
-    for (int i = 0; i < all_values.size(); i++) {
-        std::cout<<all_values[i]<<std::endl;
-    }
-}*/
 
 template<class Key, class Value>
 Value DictAvl<Key, Value>::GetValueByKey(const Key &key) {
