@@ -1,1 +1,1 @@
-/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/WET1.dir/library1_tests.cpp.o CMakeFiles/WET1.dir/library1_list.cpp.o CMakeFiles/WET1.dir/library1_avl.cpp.o  -o WET1.exe -Wl,--out-implib,libWET1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/WET1.dir/library2.cpp.o CMakeFiles/WET1.dir/main2.cpp.o  -o WET1.exe -Wl,--out-implib,libWET1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

@@ -123,86 +123,59 @@ WET1/fast:
 	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/build
 .PHONY : WET1/fast
 
-library1_avl.o: library1_avl.cpp.o
+library2.o: library2.cpp.o
 
-.PHONY : library1_avl.o
-
-# target to build an object file
-library1_avl.cpp.o:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_avl.cpp.o
-.PHONY : library1_avl.cpp.o
-
-library1_avl.i: library1_avl.cpp.i
-
-.PHONY : library1_avl.i
-
-# target to preprocess a source file
-library1_avl.cpp.i:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_avl.cpp.i
-.PHONY : library1_avl.cpp.i
-
-library1_avl.s: library1_avl.cpp.s
-
-.PHONY : library1_avl.s
-
-# target to generate assembly for a file
-library1_avl.cpp.s:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_avl.cpp.s
-.PHONY : library1_avl.cpp.s
-
-library1_list.o: library1_list.cpp.o
-
-.PHONY : library1_list.o
+.PHONY : library2.o
 
 # target to build an object file
-library1_list.cpp.o:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_list.cpp.o
-.PHONY : library1_list.cpp.o
+library2.cpp.o:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library2.cpp.o
+.PHONY : library2.cpp.o
 
-library1_list.i: library1_list.cpp.i
+library2.i: library2.cpp.i
 
-.PHONY : library1_list.i
+.PHONY : library2.i
 
 # target to preprocess a source file
-library1_list.cpp.i:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_list.cpp.i
-.PHONY : library1_list.cpp.i
+library2.cpp.i:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library2.cpp.i
+.PHONY : library2.cpp.i
 
-library1_list.s: library1_list.cpp.s
+library2.s: library2.cpp.s
 
-.PHONY : library1_list.s
+.PHONY : library2.s
 
 # target to generate assembly for a file
-library1_list.cpp.s:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_list.cpp.s
-.PHONY : library1_list.cpp.s
+library2.cpp.s:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library2.cpp.s
+.PHONY : library2.cpp.s
 
-library1_tests.o: library1_tests.cpp.o
+main2.o: main2.cpp.o
 
-.PHONY : library1_tests.o
+.PHONY : main2.o
 
 # target to build an object file
-library1_tests.cpp.o:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_tests.cpp.o
-.PHONY : library1_tests.cpp.o
+main2.cpp.o:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/main2.cpp.o
+.PHONY : main2.cpp.o
 
-library1_tests.i: library1_tests.cpp.i
+main2.i: main2.cpp.i
 
-.PHONY : library1_tests.i
+.PHONY : main2.i
 
 # target to preprocess a source file
-library1_tests.cpp.i:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_tests.cpp.i
-.PHONY : library1_tests.cpp.i
+main2.cpp.i:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/main2.cpp.i
+.PHONY : main2.cpp.i
 
-library1_tests.s: library1_tests.cpp.s
+main2.s: main2.cpp.s
 
-.PHONY : library1_tests.s
+.PHONY : main2.s
 
 # target to generate assembly for a file
-library1_tests.cpp.s:
-	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/library1_tests.cpp.s
-.PHONY : library1_tests.cpp.s
+main2.cpp.s:
+	$(MAKE) -f CMakeFiles/WET1.dir/build.make CMakeFiles/WET1.dir/main2.cpp.s
+.PHONY : main2.cpp.s
 
 # Help Target
 help:
@@ -213,15 +186,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... WET1"
 	@echo "... edit_cache"
-	@echo "... library1_avl.o"
-	@echo "... library1_avl.i"
-	@echo "... library1_avl.s"
-	@echo "... library1_list.o"
-	@echo "... library1_list.i"
-	@echo "... library1_list.s"
-	@echo "... library1_tests.o"
-	@echo "... library1_tests.i"
-	@echo "... library1_tests.s"
+	@echo "... library2.o"
+	@echo "... library2.i"
+	@echo "... library2.s"
+	@echo "... main2.o"
+	@echo "... main2.i"
+	@echo "... main2.s"
 .PHONY : help
 
 
