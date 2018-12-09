@@ -5,17 +5,46 @@
 
 #include "dict_list.h"
 
+/*
+* thrown if trying to label a labeled segment.
+*/
 class SegmentAlreadyLabeled : public std::exception {};
+
+/*
+* thrown if trying to get an unlabeled segment's label.
+*/
 class SegmentNotLabeled : public std::exception {};
 
+/*
+* class for representing an Image in the database.
+* each Image contains a fixed number of labeled/unlabeled segments.
+*/
 class Image {
 	typedef DictList<int, int>::ListNode ListNode;
+
+	/*
+	* struct to represent a single segment inside an image.
+	* label - the segment's current label (if labeled).
+	* unlabeled_ptr - a pointer to indicate whether the segment is labeled:
+	*				  a labeled segment will have ptr = nullptr.
+	*				  an unlabeled segment will have ptr point at a ListNode
+	*				  containing the segment's ID.
+	*/
 	struct Segment {
 		int label;
-		ListNode* unlabeled_ptr;
+		ListNode* unlabeled_ptr; // nullptr iff segment is labeled
 
+		/*
+		* creates a new segment.
+		* @param label is the label of the new segment.
+		* @param ptr is the node pointer to assign inside the segment.
+		*/
 		Segment(int label, ListNode* ptr) : label(label), unlabeled_ptr(ptr) {};
 
+		/*
+		* checks whether the segment is labeled.
+		* @return true iff the segment is labeled.
+		*/
 		bool IsLabeled() {
 			return (unlabeled_ptr == nullptr);
 		}
@@ -27,6 +56,11 @@ class Image {
 	DictList<int, int> unlabeled_segments;
 
 public:
+	/*
+	* constructs a new image.
+	* @param image_id is the id for the new image.
+	* @param num_of_segment is the fixed segment number the image contains.
+	*/
 	Image(int image_id, int num_of_segments) : 
 		image_id(image_id),
 		num_of_segments(num_of_segments),
@@ -50,6 +84,9 @@ public:
 			throw e;
 		}
 	}
+	/*
+	* image destructor.
+	*/
 	~Image() {
 		for (int i = 0; i < num_of_segments; ++i) {
 			delete segments[i];
@@ -58,6 +95,9 @@ public:
 		delete[] segments;
 	}
 
+	/*
+	* ID field getter.
+	*/
 	int GetID() {
 		return image_id;
 	}

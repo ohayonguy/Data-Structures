@@ -13,11 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5a247ce2-6f8a-4d11-8dca-90503b30c6e1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict_avl.h" beforeDir="false" afterPath="$PROJECT_DIR$/dict_avl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library1_avl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/library1_avl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library1_list.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/library1_list.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/library2.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -103,7 +98,7 @@
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+              <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -310,23 +305,23 @@
       <workItem from="1543862935557" duration="5312000" />
       <workItem from="1543923181107" duration="60382000" />
       <workItem from="1544113312664" duration="38000" />
-      <workItem from="1544184852099" duration="20918000" />
+      <workItem from="1544184852099" duration="21535000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158053000" />
+    <option name="totallyTimeSpent" value="158670000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1465587" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1465587" />
       <window_info id="Structure" order="1" weight="0.24947146" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.25577265" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.25577265" />
       <window_info anchor="bottom" x="-2466" y="-547" width="1274" height="674" id="Debug" order="3" weight="0.3153153" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -336,7 +331,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="CMake" order="10" weight="0.3078078" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3183183" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.3179396" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -563,7 +558,7 @@
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+          <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
         </state>
       </provider>
     </entry>
