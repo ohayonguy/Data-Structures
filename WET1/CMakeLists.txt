@@ -3,4 +3,4 @@ project(WET1)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(WET1 library2.cpp main2.cpp)
+add_executable(WET1 main1.cpp library1_avl.cpp)

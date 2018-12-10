@@ -16,33 +16,15 @@ algorithm
 vector
 -
 
-/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/dict_list.h
-iostream
--
+/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1.h
 
-/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/image.h
-stdexcept
--
-dict_list.h
-/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/dict_list.h
-
-/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/image_database.h
-memory
--
-image.h
-/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/image.h
+/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1_avl.cpp
+library1.h
+/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1.h
 dict_avl.h
 /cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/dict_avl.h
 
-/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library2.cpp
-library2.h
-/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library2.h
-image_database.h
-/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/image_database.h
-
-/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library2.h
-
-/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/main2.cpp
+/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/main1.cpp
 assert.h
 -
 stdio.h
@@ -51,6 +33,8 @@ stdlib.h
 -
 string.h
 -
-library2.h
-/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library2.h
+time.h
+-
+library1.h
+/cygdrive/c/Users/guyoe/OneDrive - Technion/Semester 4/Data Structures/Homework/WET1/library1.h
 

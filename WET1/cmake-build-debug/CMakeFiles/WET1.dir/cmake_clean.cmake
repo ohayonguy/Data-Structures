@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/WET1.dir/library2.cpp.o"
-  "CMakeFiles/WET1.dir/main2.cpp.o"
+  "CMakeFiles/WET1.dir/main1.cpp.o"
+  "CMakeFiles/WET1.dir/library1_avl.cpp.o"
   "WET1.pdb"
   "WET1.exe"
   "libWET1.dll.a"
