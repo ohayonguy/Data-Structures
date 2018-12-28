@@ -1,0 +1,16 @@
+init 4
+addImage 5
+addImage 7
+addImage 2
+deleteImage 7
+deleteImage 1
+addLabel 5 2 123
+addLabel 2 1 123
+addLabel 2 1 456
+addLabel 2 0 456
+getLabel 5 2
+deleteLabel 2 0
+deleteLabel 5 1
+getAllUnLabeledSegments 5
+getAllSegmentsByLabel 123
+quit

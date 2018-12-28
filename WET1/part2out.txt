@@ -1,0 +1,24 @@
+init done.
+addImage: SUCCESS
+addImage: SUCCESS
+addImage: SUCCESS
+deleteImage: SUCCESS
+deleteImage: FAILURE
+addLabel: SUCCESS
+addLabel: SUCCESS
+addLabel: FAILURE
+addLabel: SUCCESS
+getLabel: 123
+deleteLabel: SUCCESS
+deleteLabel: FAILURE
+getAllUnLabeledSegments: SUCCESS
+0
+1
+3
+--End of segments list--
+getAllSegmentsByLabel: SUCCESS
+Image	||	Segment
+2	||	1
+5	||	2
+--End of segments list--
+quit done.

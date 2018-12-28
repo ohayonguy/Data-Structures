@@ -12,15 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a247ce2-6f8a-4d11-8dca-90503b30c6e1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/library1_tests.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/WET1.dir/library1_tests.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/WET1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/WET1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/WET1.exe.stackdump" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/WET1.exe.stackdump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict_avl.h" beforeDir="false" afterPath="$PROJECT_DIR$/dict_avl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library1_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/library1_tests.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,24 +25,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library1_tests.cpp">
+        <entry file="file://$PROJECT_DIR$/library2.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="65" selection-end-column="5" />
+            <state relative-caret-position="-7">
+              <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#79#92#0" expanded="true" />
-                <element signature="e#100#121#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/bits/stl_vector.h">
+        <entry file="file://$PROJECT_DIR$/image_database.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="798" selection-start-line="798" selection-end-line="798" />
+            <state relative-caret-position="-18">
+              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -58,22 +48,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dict_list.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-43">
-              <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+            <state relative-caret-position="105">
+              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
               <folding>
-                <element signature="e#91#110#0" expanded="true" />
                 <element signature="e#120#144#0" expanded="true" />
-                <element signature="e#226#569#1" />
-                <element signature="e#621#872#0" />
-                <element signature="e#877#1145#0" />
+                <element signature="e#174#193#0" />
+                <element signature="e#224#243#0" />
+                <element signature="e#248#591#1" />
+                <element signature="e#574#593#0" />
+                <element signature="e#619#638#0" />
+                <element signature="e#619#894#0" />
+                <element signature="e#875#950#0" />
+                <element signature="e#899#1459#0" />
+                <element signature="e#1148#1202#0" />
                 <element signature="e#1150#1234#0" />
+                <element signature="e#1237#1275#0" />
                 <element signature="e#1239#1384#0" />
+                <element signature="e#1430#1569#0" />
                 <element signature="e#1389#1972#0" />
+                <element signature="e#2970#3005#0" />
                 <element signature="e#1977#2019#0" />
-                <element signature="e#2024#2231#0" />
-                <element signature="e#2300#2484#0" />
-                <element signature="e#2300#2795#0" />
-                <element signature="e#2890#2914#0" expanded="true" />
+                <element signature="e#3094#3129#0" />
+                <element signature="e#2025#2317#0" />
+                <element signature="e#2331#2515#0" />
+                <element signature="e#2331#2826#0" />
+                <element signature="e#4069#4088#0" />
+                <element signature="e#4143#4162#0" />
               </folding>
             </state>
           </provider>
@@ -82,8 +82,63 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/library1.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="99" selection-start-line="99" selection-end-line="99" selection-end-column="21" />
+            <state relative-caret-position="147">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main1.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+              <folding>
+                <element signature="e#1089#1108#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library1_avl.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2268">
+              <caret line="108" column="1" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
+              <folding>
+                <element signature="e#41#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dict_avl.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+              <folding>
+                <element signature="e#248#349#0" />
+                <element signature="e#1710#1741#0" />
+                <element signature="e#1789#1818#0" />
+                <element signature="e#2191#2428#0" />
+                <element signature="e#2474#2716#0" />
+                <element signature="e#2957#3029#0" />
+                <element signature="e#3274#3317#0" />
+                <element signature="e#3341#3391#0" />
+                <element signature="e#3674#3793#0" />
+                <element signature="e#4778#5033#0" />
+                <element signature="e#6275#6376#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,74 +146,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/library1_list.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+            <state relative-caret-position="2289">
+              <caret line="109" column="1" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
               <folding>
-                <element signature="e#40#61#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dict_avl.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
-              <folding>
-                <element signature="e#104#123#0" expanded="true" />
-                <element signature="e#10557#10581#0" expanded="true" />
-                <element signature="e#12851#12875#0" expanded="true" />
-                <element signature="e#13452#13476#0" expanded="true" />
-                <element signature="e#13695#13719#0" expanded="true" />
-                <element signature="e#14085#14109#0" expanded="true" />
-                <element signature="e#14175#14199#0" expanded="true" />
-                <element signature="e#14429#14453#0" expanded="true" />
-                <element signature="e#14569#14593#0" expanded="true" />
-                <element signature="e#21629#21653#0" expanded="true" />
+                <element signature="e#42#63#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/bits/stl_algobase.h">
+        <entry file="file://$PROJECT_DIR$/image.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="226" selection-start-line="226" selection-end-line="226" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/bits/exception.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dict_avl.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="221" column="19" selection-start-line="221" selection-start-column="8" selection-end-line="221" selection-end-column="19" />
+            <state relative-caret-position="707">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
               <folding>
-                <element signature="e#8#32#0" expanded="true" />
-                <element signature="e#299#323#0" expanded="true" />
-                <element signature="e#2891#2915#0" expanded="true" />
-                <element signature="e#4902#4926#0" expanded="true" />
-                <element signature="e#7333#7357#0" expanded="true" />
-                <element signature="e#8569#8593#0" expanded="true" />
-                <element signature="e#13089#13113#0" expanded="true" />
-                <element signature="e#13718#13742#0" expanded="true" />
-                <element signature="e#13810#13834#0" expanded="true" />
-                <element signature="e#14185#14209#0" expanded="true" />
-                <element signature="e#14588#14612#0" expanded="true" />
-                <element signature="e#15185#15209#0" expanded="true" />
-                <element signature="e#15427#15451#0" expanded="true" />
-                <element signature="e#15681#15705#0" expanded="true" />
+                <element signature="e#33#53#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -186,9 +189,19 @@
       <find>switchnodes</find>
       <find>NodeInTree</find>
       <find>CheckIfAVL</find>
+      <find>list</find>
+      <find>GetAllValuesInOr</find>
+      <find>Init</find>
+      <find>ImageDatabase</find>
+      <find>FindImage</find>
+      <find>main</find>
+      <find>InsertNode</find>
+      <find>KeyAlreadyExists</find>
+      <find>DictList</find>
     </findStrings>
     <replaceStrings>
       <replace>value</replace>
+      <replace>avl</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -201,21 +214,27 @@
         <option value="$PROJECT_DIR$/library1_list.c" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/ListNode.h" />
-        <option value="$PROJECT_DIR$/library1_list.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/dict_avl.cpp" />
-        <option value="$PROJECT_DIR$/dict_list.h" />
         <option value="$PROJECT_DIR$/library1_tests.cpp" />
+        <option value="$PROJECT_DIR$/library1.h" />
+        <option value="$PROJECT_DIR$/library2.cpp" />
+        <option value="$PROJECT_DIR$/image.h" />
+        <option value="$PROJECT_DIR$/image_database.h" />
+        <option value="$PROJECT_DIR$/library1_avl.cpp" />
+        <option value="$PROJECT_DIR$/library1_list.cpp" />
         <option value="$PROJECT_DIR$/dict_avl.h" />
+        <option value="$PROJECT_DIR$/dict_list.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/main1.cpp" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-2573" />
-    <option name="y" value="-614" />
-    <option name="width" value="2585" />
-    <option name="height" value="1395" />
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="1943" />
+    <option name="height" value="1043" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -282,24 +301,25 @@
       <workItem from="1543567503983" duration="59606000" />
       <workItem from="1543824344035" duration="7634000" />
       <workItem from="1543862935557" duration="5312000" />
-      <workItem from="1543923181107" duration="59060000" />
+      <workItem from="1543923181107" duration="60382000" />
+      <workItem from="1544113312664" duration="38000" />
+      <workItem from="1544184852099" duration="23555000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135775000" />
+    <option name="totallyTimeSpent" value="160690000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2567" y="-608" width="1477" height="797" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12473573" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1465587" />
       <window_info id="Structure" order="1" weight="0.24947146" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3843844" />
-      <window_info anchor="bottom" x="1" y="-1" width="1280" height="680" id="Debug" order="3" type="FLOATING" visible="true" weight="0.7297297" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3623446" />
+      <window_info anchor="bottom" x="-2466" y="-547" width="1274" height="674" id="Debug" order="3" weight="0.3153153" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -308,7 +328,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="CMake" order="10" weight="0.3078078" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3183183" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3179396" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -348,10 +368,17 @@
     <entry file="file://$PROJECT_DIR$/library1_list.c" />
     <entry file="file://$PROJECT_DIR$/dict_list.cpp" />
     <entry file="file://$PROJECT_DIR$/ListNode.h" />
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/bits/stl_vector.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="51" />
+        <state relative-caret-position="13566">
+          <caret line="798" selection-start-line="798" selection-end-line="798" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/bits/stl_algobase.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3842">
+          <caret line="226" selection-start-line="226" selection-end-line="226" />
         </state>
       </provider>
     </entry>
@@ -362,63 +389,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/bits/stl_algobase.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="226" selection-start-line="226" selection-end-line="226" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/bits/stl_vector.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="798" selection-start-line="798" selection-end-line="798" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library1_list.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
-          <folding>
-            <element signature="e#40#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library1.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="99" selection-start-line="99" selection-end-line="99" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dict_list.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-          <folding>
-            <element signature="e#91#110#0" expanded="true" />
-            <element signature="e#120#144#0" expanded="true" />
-            <element signature="e#226#569#1" />
-            <element signature="e#621#872#0" />
-            <element signature="e#877#1145#0" />
-            <element signature="e#1150#1234#0" />
-            <element signature="e#1239#1384#0" />
-            <element signature="e#1389#1972#0" />
-            <element signature="e#1977#2019#0" />
-            <element signature="e#2024#2231#0" />
-            <element signature="e#2300#2484#0" />
-            <element signature="e#2300#2795#0" />
-            <element signature="e#2890#2914#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dict_avl.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="221" column="19" selection-start-line="221" selection-start-column="8" selection-end-line="221" selection-end-column="19" />
+        <state relative-caret-position="2029">
+          <caret line="195" column="18" lean-forward="true" selection-start-line="195" selection-start-column="18" selection-end-line="195" selection-end-column="18" />
           <folding>
             <element signature="e#8#32#0" expanded="true" />
             <element signature="e#299#323#0" expanded="true" />
@@ -438,10 +412,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main2.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/library1_tests.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="65" selection-end-column="5" />
+        <state relative-caret-position="-7">
+          <caret line="20" column="70" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
             <element signature="e#79#92#0" expanded="true" />
@@ -450,21 +431,135 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/library2.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library2.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/image_database.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-18">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/image.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+          <folding>
+            <element signature="e#33#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dict_avl.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+        <state relative-caret-position="-7">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
           <folding>
-            <element signature="e#104#123#0" expanded="true" />
-            <element signature="e#10557#10581#0" expanded="true" />
-            <element signature="e#12851#12875#0" expanded="true" />
-            <element signature="e#13452#13476#0" expanded="true" />
-            <element signature="e#13695#13719#0" expanded="true" />
-            <element signature="e#14085#14109#0" expanded="true" />
-            <element signature="e#14175#14199#0" expanded="true" />
-            <element signature="e#14429#14453#0" expanded="true" />
-            <element signature="e#14569#14593#0" expanded="true" />
-            <element signature="e#21629#21653#0" expanded="true" />
+            <element signature="e#248#349#0" />
+            <element signature="e#1710#1741#0" />
+            <element signature="e#1789#1818#0" />
+            <element signature="e#2191#2428#0" />
+            <element signature="e#2474#2716#0" />
+            <element signature="e#2957#3029#0" />
+            <element signature="e#3274#3317#0" />
+            <element signature="e#3341#3391#0" />
+            <element signature="e#3674#3793#0" />
+            <element signature="e#4778#5033#0" />
+            <element signature="e#6275#6376#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/submission/dict_avl.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dict_list.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+          <folding>
+            <element signature="e#120#144#0" expanded="true" />
+            <element signature="e#174#193#0" />
+            <element signature="e#224#243#0" />
+            <element signature="e#248#591#1" />
+            <element signature="e#574#593#0" />
+            <element signature="e#619#638#0" />
+            <element signature="e#619#894#0" />
+            <element signature="e#875#950#0" />
+            <element signature="e#899#1459#0" />
+            <element signature="e#1148#1202#0" />
+            <element signature="e#1150#1234#0" />
+            <element signature="e#1237#1275#0" />
+            <element signature="e#1239#1384#0" />
+            <element signature="e#1430#1569#0" />
+            <element signature="e#1389#1972#0" />
+            <element signature="e#2970#3005#0" />
+            <element signature="e#1977#2019#0" />
+            <element signature="e#3094#3129#0" />
+            <element signature="e#2025#2317#0" />
+            <element signature="e#2331#2515#0" />
+            <element signature="e#2331#2826#0" />
+            <element signature="e#4069#4088#0" />
+            <element signature="e#4143#4162#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library1_avl.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2268">
+          <caret line="108" column="1" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
+          <folding>
+            <element signature="e#41#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library1_list.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2289">
+          <caret line="109" column="1" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
+          <folding>
+            <element signature="e#42#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library1.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main1.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <folding>
+            <element signature="e#1089#1108#0" expanded="true" />
           </folding>
         </state>
       </provider>
