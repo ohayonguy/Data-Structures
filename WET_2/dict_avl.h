@@ -23,6 +23,10 @@ public:
      */
     class KeyAlreadyExists : public std::exception {};
     /**
+     * An exception to throw when root is nullptr.
+     */
+    class DictAvlIsNotInitialized : public std::exception {};
+    /**
      * A struct which describes a rank for each cell.
      */
     struct Rank {
@@ -149,6 +153,10 @@ public:
      * which means that it's sorted by the keys.
      */
     Value* GetAllValuesInOrder();
+    /**
+     * returns the maximum rank (it will be in the root of the dict avl).
+     */
+    Value GetMaximumRank(const Key* key_of_maximum_value);
 private:
     /**
      * the root of the avl tree
@@ -182,6 +190,11 @@ private:
      * @return true if AVL, false otherwise.
      */
     static bool CheckIfAVL(const AvlNode* root);
+    /**
+     * Debug function for checking if the tree follows the ranking rules.
+     * @param root
+     * @return
+     */
     static bool CheckIfRankTree(AvlNode* root);
     /**
      * Performs basit BST insert (Binary Search Tree insert). Looks for the right place of insertion based on the
@@ -638,6 +651,16 @@ bool DictAvl<Key, Value>::CheckIfRankTree(DictAvl::AvlNode *root) {
     return CheckIfRankTree(root->left_son); //I splitted the test for the left and right tree in order to potentially
     // save a lot of runtime.
     // I mean, instead of: return CheckIfAVL(root->left_son) && CheckIfAVL(root->right_son)
+}
+
+template<class Key, class Value>
+Value DictAvl<Key, Value>::GetMaximumRank(const Key *key_of_maximum_value) {
+    if (this->root == nullptr) {
+        throw DictAvlIsNotInitialized();
+    } else {
+        *key_of_maximum_value = this->root->rank.key_of_max_value;
+        return this->root->rank.max_value;
+    }
 }
 
 #endif //WET1_DICT_AVL_H
