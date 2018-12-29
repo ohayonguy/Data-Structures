@@ -10,6 +10,7 @@
 #include <assert.h>
 #include <algorithm>
 #include <vector>
+#include <math.h>
 
 template <class Key, class Value>
 class DictAvl {
@@ -43,6 +44,7 @@ public:
                     return true;
             return false;
         }
+        // For debug only!
         bool operator>=(const Rank& rank_to_compare) {
             if (this->max_value > rank_to_compare.max_value) // If this value is bigger than the other rank's value,
                 // it means that the current rank is bigger.
@@ -67,6 +69,8 @@ public:
         int balance_factor;
         int left_height;
         int right_height;
+        AvlNode() : value(Value()), key(Key()), left_son(nullptr), right_son(nullptr), father(nullptr),
+                    rank(Value(),Key()), balance_factor(0), left_height(0), right_height(0) {};
         AvlNode(const Key& key, const Value& value) :
                 value(value),
                 key(key),
@@ -86,6 +90,11 @@ public:
             this->left_height = left_height;
             this->right_height = right_height;
             this->UpdateRank();
+        }
+        bool operator<(const AvlNode& node_to_compare) const {
+            if (this->key < node_to_compare.key)
+                return true;
+            return false;
         }
         void UpdateRank() {
             this->rank = Rank(this->value, this->key); // Init a new rank to avoid bugs when comparing with left son
@@ -107,6 +116,43 @@ public:
                 return;
             }
             node_to_update->UpdateRank();
+            return;
+        }
+        void UpdateHeights() {
+            if (this->left_son == nullptr)
+                this->left_height = 0;
+            else {
+                this->left_height = 1 + std::max(this->left_son->left_height,this->left_son->right_height);
+            }
+            if (this->right_son == nullptr)
+                this->right_height = 0;
+            else {
+                this->right_height = 1 + std::max(this->right_son->left_height,this->right_son->right_height);
+            }
+        }
+        void UpdateBalanceFactor() {
+            this->balance_factor = this->left_height - this->right_height;
+        }
+        void UpdateSonsFatherToCurrentNode() {
+            if (this->right_son != nullptr) {
+                this->right_son->father = this;
+            }
+            if (this->left_son != nullptr) {
+                this->left_son->father = this;
+            }
+        }
+        void RemoveThisNodeFromItsFatherAndUpdateFather() {
+            if (this->father == nullptr)
+                return;
+            if (this->father->right_son == this) {
+                this->father->right_son = nullptr;
+            } else {
+                assert(this->father->left_son == this);
+                this->father->left_son = nullptr;
+            }
+            this->father->UpdateRank();
+            this->father->UpdateHeights();
+            this->father->UpdateBalanceFactor();
             return;
         }
     };
@@ -154,10 +200,23 @@ public:
      */
     Value* GetAllValuesInOrder();
     /**
+     * Returns an array of avl nodes which contains the values and keys in the order of the tree (sorted from the lowest
+     * to the biggest).
+     */
+    AvlNode* GetAllAvlNodesInOrder();
+    /**
      * returns the maximum rank (it will be in the root of the dict avl).
      */
     Value GetMaximumRank(const Key* key_of_maximum_value);
+    /**
+     * Creates an avl tree from an array of ordered nodes (ordered by the keys).
+     */
+    static DictAvl* CreateAVLTreeFromInOrderNodesArray(const AvlNode* in_ordered_nodes, int size);
 private:
+    /**
+     * Constructor.
+     */
+    DictAvl(AvlNode* root, int size) : root(root), size(size) {};
     /**
      * the root of the avl tree
      */
@@ -184,18 +243,6 @@ private:
      * Deletes the whole tree, starting from the given root.
      */
     static void DeleteTree(const AvlNode* root);
-    /**
-     * Checks if the tree is AVL, starting from root.
-     * @param root is the node to start the check from.
-     * @return true if AVL, false otherwise.
-     */
-    static bool CheckIfAVL(const AvlNode* root);
-    /**
-     * Debug function for checking if the tree follows the ranking rules.
-     * @param root
-     * @return
-     */
-    static bool CheckIfRankTree(AvlNode* root);
     /**
      * Performs basit BST insert (Binary Search Tree insert). Looks for the right place of insertion based on the
      * key of the new_node, inserts the new_node, and updates it's father.
@@ -245,6 +292,45 @@ private:
      * Fills the values array with all the values in order (based on the keys).
      */
     int FillAllValuesInOrder(Value* values, int index, AvlNode* current_node);
+    /**
+     * fills an array of nodes with in order search on the avl tree.
+     * @param nodes
+     * @param index
+     * @param current_node
+     * @return
+     */
+    int FillAllNodesInOrder(AvlNode* nodes, int index, AvlNode* current_node);
+    /**
+     * creats a complete avl tree with height = height.
+     */
+    static AvlNode* CreateCompleteAvlTree(int height);
+    /**
+     * Fills all values and keys in the dict avl in a flipped in order fashion.
+     * @param in_ordered_nodes
+     * @param size
+     */
+    static int FillTreeValuesAndKeysInOrder(AvlNode* root, const AvlNode* in_ordered_nodes, int index,  int size);
+    /**
+     * Updates the tree to the actual size by deleting the unneeded leaves.
+     */
+    static int UpdateCompleteTreeToActualSize(AvlNode* root, int how_many_leaves_to_delete);
+
+
+    //DEBUG FUNCTIONS
+    /**
+     * Checks if the tree is AVL, starting from root.
+     * @param root is the node to start the check from.
+     * @return true if AVL, false otherwise.
+     */
+    static bool CheckIfAVL(const AvlNode* root);
+    static int GetNumberOfElements(const AvlNode* root);
+    static int GetTreeHeight(const AvlNode* root);
+    /**
+     * Debug function for checking if the tree follows the ranking rules.
+     * @param root
+     * @return
+     */
+    static bool CheckIfRankTree(AvlNode* root);
 };
 
 template<class Key, class Value>
@@ -430,12 +516,13 @@ void DictAvl<Key, Value>::DeleteTree(const DictAvl::AvlNode *root) {
     return;
 }
 
-
 template<class Key, class Value>
 bool DictAvl<Key, Value>::CheckIfAVL(const DictAvl::AvlNode *root) {
     if (root == nullptr)
         return true;
-    if (abs(root->right_height-root->left_height) > 1 || abs(root->balance_factor) > 1) {
+    if (abs(root->right_height-root->left_height) > 1
+        || abs(GetTreeHeight(root->right_son)-GetTreeHeight(root->left_son)) > 1
+        || abs(root->balance_factor) > 1) {
         std::cout<<root->key<<std::endl;
         std::cout<<"BF or heights problem"<<std::endl;
         return false;
@@ -639,7 +726,6 @@ template<class Key, class Value>
 bool DictAvl<Key, Value>::CheckIfRankTree(DictAvl::AvlNode *root) {
     if (root == nullptr)
         return true;
-    Rank root_rank = root->rank;
     if (root->right_son != nullptr)
         if (!(root->rank >= root->right_son->rank))
             return false;
@@ -662,5 +748,122 @@ Value DictAvl<Key, Value>::GetMaximumRank(const Key *key_of_maximum_value) {
         return this->root->rank.max_value;
     }
 }
+
+template<class Key, class Value>
+typename DictAvl<Key, Value>::AvlNode *DictAvl<Key, Value>::GetAllAvlNodesInOrder() {
+    AvlNode* nodes_in_order = new AvlNode[GetSize()];
+    for (int i = 0; i < GetSize(); i++) {
+        nodes_in_order[i] = nullptr;
+    }
+    FillAllNodesInOrder(nodes_in_order, 0, this->root);
+}
+
+template<class Key, class Value>
+int DictAvl<Key, Value>::FillAllNodesInOrder(AvlNode* nodes, int index, AvlNode* current_node) {
+    if (current_node == nullptr) {
+        return index;
+    }
+    index = FillAllNodesInOrder(nodes, index, current_node->left_son);
+    nodes[index].value = current_node->value;
+    nodes[index].key = current_node->key;
+    nodes[index].right_son = nullptr;
+    nodes[index].left_son = nullptr;
+    nodes[index].father = nullptr;
+    nodes[index].rank = current_node->rank; // Not really relevant.
+    index++;
+    index = FillAllNodesInOrder(nodes, index, current_node->right_son);
+    return index;
+}
+
+template<class Key, class Value>
+DictAvl<Key, Value> *DictAvl<Key, Value>::CreateAVLTreeFromInOrderNodesArray(const DictAvl::AvlNode *in_ordered_nodes,
+        int size) {
+    if (size <= 0)
+        return nullptr;
+    int complete_tree_height = ceil(log2(size + 1)) - 1;
+    AvlNode* complete_tree = CreateCompleteAvlTree(complete_tree_height);
+    assert(GetNumberOfElements(complete_tree) == pow(2,complete_tree_height + 1) - 1);
+    assert(CheckIfAVL(complete_tree));
+    int number_of_leaves_to_delete = pow(2,complete_tree_height + 1) - 1 - size;
+    assert(number_of_leaves_to_delete>=0);
+    UpdateCompleteTreeToActualSize(complete_tree,number_of_leaves_to_delete);
+    assert(CheckIfAVL(complete_tree));
+    FillTreeValuesAndKeysInOrder(complete_tree,in_ordered_nodes,0,size);
+    assert(CheckIfAVL(complete_tree));
+    assert(CheckIfRankTree(complete_tree));
+    assert(GetNumberOfElements(complete_tree) == size);
+    DictAvl* complete_dict_avl = new DictAvl(complete_tree, size); // Here complete_tree is already after deletion of
+    //unnecessary nodes.
+    return complete_dict_avl;
+}
+
+template<class Key, class Value>
+typename DictAvl<Key, Value>::AvlNode *DictAvl<Key, Value>::CreateCompleteAvlTree(int height) {
+    if (height < 0) // Height can be zero when we have only one node left to create.
+        return nullptr;
+    AvlNode* new_node = new AvlNode(Key(), Value()); // key and value are not important in this stage. They
+    // Should have default constructors.
+    if (height == 0) { // Height = 0 means it's a leaf.
+        new_node->left_son = nullptr;
+        new_node->right_son = nullptr;
+    } else {
+        new_node->left_son = CreateCompleteAvlTree(height - 1);
+        new_node->right_son = CreateCompleteAvlTree(height - 1);
+    }
+    new_node->UpdateSonsFatherToCurrentNode();
+    new_node->UpdateRank();
+    new_node->UpdateHeights();
+    new_node->UpdateBalanceFactor();
+    new_node->father = nullptr;
+    return new_node;
+}
+
+template<class Key, class Value>
+int DictAvl<Key, Value>::UpdateCompleteTreeToActualSize(DictAvl::AvlNode *root, int how_many_leaves_to_delete) {
+    if (how_many_leaves_to_delete <= 0)
+        return how_many_leaves_to_delete;
+    if (root == nullptr)
+        return how_many_leaves_to_delete;
+    if (root->right_son == nullptr && root->left_son == nullptr) {
+        root->RemoveThisNodeFromItsFatherAndUpdateFather();
+        delete root;
+        how_many_leaves_to_delete--;
+        return how_many_leaves_to_delete;
+    }
+    how_many_leaves_to_delete = UpdateCompleteTreeToActualSize(root->right_son, how_many_leaves_to_delete);
+    how_many_leaves_to_delete = UpdateCompleteTreeToActualSize(root->left_son, how_many_leaves_to_delete);
+    return how_many_leaves_to_delete;
+}
+
+template<class Key, class Value>
+int DictAvl<Key, Value>::FillTreeValuesAndKeysInOrder(DictAvl::AvlNode *root, const DictAvl::AvlNode *in_ordered_nodes,
+                                                         int index, int size) {
+    if (root == nullptr)
+        return index;
+    if (index >= size)
+        return index;
+    index = FillTreeValuesAndKeysInOrder(root->left_son,in_ordered_nodes,index,size);
+    root->value = in_ordered_nodes[index].value;
+    root->key = in_ordered_nodes[index].key;
+    index++;
+    index = FillTreeValuesAndKeysInOrder(root->right_son,in_ordered_nodes,index,size);
+    root->UpdateRank();
+    return index;
+}
+
+template<class Key, class Value>
+int DictAvl<Key, Value>::GetNumberOfElements(const DictAvl::AvlNode *root) {
+    if (root == nullptr)
+        return 0;
+    return 1 + GetNumberOfElements(root->left_son) + GetNumberOfElements(root->right_son);
+}
+
+template<class Key, class Value>
+int DictAvl<Key, Value>::GetTreeHeight(const DictAvl::AvlNode *root) {
+    if (root == nullptr)
+        return 0;
+    return 1 + std::max(GetTreeHeight(root->left_son), GetTreeHeight(root->right_son));
+}
+
 
 #endif //WET1_DICT_AVL_H
