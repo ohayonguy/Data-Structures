@@ -10,7 +10,7 @@ using std::cout;
 using std::endl;
 
 void TestCreateTreeFromInOrderList() {
-    double max_size = 1000.0;
+    double max_size = 5000.0;
     for (int k = 1; k < max_size; k++) {
 
         DictAvl<Key,Value>::AvlNode* array_of_nodes = new DictAvl<Key,Value>::AvlNode[k];
@@ -44,7 +44,7 @@ void TestInsertDeleteInAvlTree() {
     DictAvl<Key,Value> avl_dict;
     std::vector<Key> inserted_keys;
     std::vector<int> insertion_shuffle;
-    double max_size = 7000;
+    double max_size = 5000.0;
     for (int i = 0; i < max_size; i++) {
         int new_insertion = rand();
         insertion_shuffle.push_back(new_insertion);

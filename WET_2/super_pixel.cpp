@@ -70,6 +70,7 @@ SuperPixel* SuperPixel::MergeSuperPixels(const SuperPixel &sp1, const SuperPixel
 
     DictAvl<int,int>::AvlNode* merged_avl = DictAvl<int,int>::CreateAVLTreeFromInOrderNodesArray(merged_array,
                                                                               merged_array_size);
+    delete[] merged_array;
     SuperPixel* merged_super_pixel = new SuperPixel(merged_avl,merged_array_size);
     return merged_super_pixel;
 }
