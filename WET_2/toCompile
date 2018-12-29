@@ -1,0 +1,9 @@
+-std=c++11
+union_find.h
+hash_table.h
+dict_avl.h
+image.h
+super_pixel.h
+image.cpp
+super_pixel.cpp
+main.cpp
