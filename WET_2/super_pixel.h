@@ -60,6 +60,9 @@ public:
      * @return
      */
     int GetSize() const;
+
+    //DEBUG
+    int GetScoreOfLabel(int label);
 };
 
 

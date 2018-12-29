@@ -36,7 +36,7 @@ void TestCreateTreeFromInOrderList() {
         delete tree;
         delete[] array_of_nodes;
         if (ceil((k/max_size)*100) == (k/max_size)*100)
-            std::cout<<"Progress: "<<(k/max_size)*100<<"%"<<std::endl;
+            std::cout<<"TestCreateTreeFromInOrderList Progress: "<<(k/max_size)*100<<"%"<<std::endl;
     }
     std::cout<<"TestCreateTreeFromInOrderList OK!"<<std::endl;
 }
@@ -65,7 +65,7 @@ void TestInsertDeleteInAvlTree() {
     for (int i = 0; i < max_size; i ++) {
         avl_dict.DeleteNodeByKey(inserted_keys[i]);
         if (ceil((i/max_size)*100) == (i/max_size)*100)
-            std::cout<<"Progress: "<<(i/max_size)*100<<"%"<<std::endl;
+            std::cout<<"TestInsertDeleteInAvlTree Progress: "<<(i/max_size)*100<<"%"<<std::endl;
     }
     std::cout<<"TestInsertDeleteInAvlTree OK!"<<std::endl;
 }
@@ -112,15 +112,38 @@ void TestMergeSuperPixels() {
             sp2.SetLabelScore(random_label, sp2_scores.back());
             sp2_scores.pop_back();
         }
+
         SuperPixel *sp_merged = SuperPixel::MergeSuperPixels(sp1, sp2);
         delete sp_merged;
+
+        SuperPixel sp3;
+        SuperPixel sp4;
+        std::vector<int> random_scores;
+        for (int i = 0; i < num_of_labels; i++) {
+            int random_score = RandomFunc();
+            random_scores.push_back(random_score);
+        }
+
+        for (int i = 0; i < num_of_labels; i++) {
+            sp3.SetLabelScore(sp2_labels[i],random_scores[i]);
+            sp4.SetLabelScore(sp2_labels[i],random_scores[i]);
+        }
+
+        sp_merged = SuperPixel::MergeSuperPixels(sp3, sp4);
+
+        for (int i = 0; i < num_of_labels; i++) {
+            assert(sp_merged->GetScoreOfLabel(sp2_labels[i]) == 2 * random_scores[i]);
+        }
+
+        delete sp_merged;
         if (ceil((j/num_of_tests)*100) == (j/num_of_tests)*100)
-            std::cout<<"Progress: "<<(j/num_of_tests)*100<<"%"<<std::endl;
+            std::cout<<"TestMergeSuperPixels Progress: "<<(j/num_of_tests)*100<<"%"<<std::endl;
     }
+    std::cout<<"TestMergeSuperPixels OK!"<<std::endl;
 
 }
 void TestGetHighestScoreLabel() {
-    int num_of_labels = 1000;
+    int num_of_labels = 100;
     double num_of_tests = 5000.0;
     for (int j = 1; j < num_of_tests; j++) {
         SuperPixel sp1;
@@ -153,8 +176,9 @@ void TestGetHighestScoreLabel() {
         }
         assert(sp1.GetHighestScoredLabel() == label_of_max_score);
         if (ceil((j/num_of_tests)*100) == (j/num_of_tests)*100)
-            std::cout<<"Progress: "<<(j/num_of_tests)*100<<"%"<<std::endl;
+            std::cout<<"TestGetHighestScoreLabel Progress: "<<(j/num_of_tests)*100<<"%"<<std::endl;
     }
+    std::cout<<"TestGetHighestScoreLabel OK!"<<std::endl;
 }
 void TestSuperPixel() {
     TestMergeSuperPixels();

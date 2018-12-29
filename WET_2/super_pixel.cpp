@@ -113,3 +113,7 @@ SuperPixel::MergeSortedAvlNodesArrays(const DictAvl<int, int>::AvlNode *arr1, in
     *final_size = k;
     return merged_array;
 }
+
+int SuperPixel::GetScoreOfLabel(int label) {
+    return labels_and_scores.GetValueByKey(label);
+}
