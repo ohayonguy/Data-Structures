@@ -28,7 +28,14 @@ void ImageDatabase::DeleteImage(int image_id) {
 	images->Delete(image_id); // no exception should be thrown since if we got here, image exists.
 }
 
+int ImageDatabase::GetPixels() {
+	return pixels;
+}
+
 void ImageDatabase::SetLabelScore(int image_id, int pixel, int label, int score) {
+	try {
+		GetImage(image_id)->ResetLabelScore(pixel, label);
+	} catch (SuperPixel::LabelDoesNotExist&) {}
 	GetImage(image_id)->SetLabelScore(pixel, label, score);
 }
 
