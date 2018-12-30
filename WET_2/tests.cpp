@@ -10,7 +10,7 @@ using std::cout;
 using std::endl;
 
 void TestCreateTreeFromInOrderList() {
-    double max_size = 5000.0;
+    double max_size = 10.0;
     for (int k = 1; k < max_size; k++) {
 
         DictAvl<Key,Value>::AvlNode* array_of_nodes = new DictAvl<Key,Value>::AvlNode[k];
@@ -32,8 +32,7 @@ void TestCreateTreeFromInOrderList() {
             insertion_shuffle.pop_back();
         }
         std::sort(array_of_nodes, array_of_nodes + k);
-        DictAvl<Key,Value>::AvlNode* tree = DictAvl<Key,Value>::CreateAVLTreeFromInOrderNodesArray(array_of_nodes,k);
-        delete tree;
+        DictAvl<Key,Value> tree = DictAvl<Key,Value>(DictAvl<Key,Value>::CreateAVLTreeFromInOrderNodesArray(array_of_nodes,k),k);
         delete[] array_of_nodes;
         if (ceil((k/max_size)*100) == (k/max_size)*100)
             std::cout<<"TestCreateTreeFromInOrderList Progress: "<<(k/max_size)*100<<"%"<<std::endl;
@@ -44,7 +43,7 @@ void TestInsertDeleteInAvlTree() {
     DictAvl<Key,Value> avl_dict;
     std::vector<Key> inserted_keys;
     std::vector<int> insertion_shuffle;
-    double max_size = 5000.0;
+    double max_size = 10.0;
     for (int i = 0; i < max_size; i++) {
         int new_insertion = rand();
         insertion_shuffle.push_back(new_insertion);
@@ -74,7 +73,7 @@ int RandomFunc() {
 }
 void TestMergeSuperPixels() {
     int num_of_labels = 100;
-    double num_of_tests = 5000.0;
+    double num_of_tests = 10.0;
     for (int j = 1; j < num_of_tests; j++) {
         SuperPixel sp1;
         SuperPixel sp2;
@@ -144,7 +143,7 @@ void TestMergeSuperPixels() {
 }
 void TestGetHighestScoreLabel() {
     int num_of_labels = 100;
-    double num_of_tests = 5000.0;
+    double num_of_tests = 10.0;
     for (int j = 1; j < num_of_tests; j++) {
         SuperPixel sp1;
 

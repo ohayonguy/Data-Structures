@@ -33,7 +33,8 @@ public:
     *	constructor.
     */
     SuperPixel() = default;
-    SuperPixel(DictAvl<int,int>::AvlNode* labels_and_scores, int size) : labels_and_scores(labels_and_scores,size){};
+    SuperPixel(DictAvl<int,int>::AvlNode* labels_and_scores, int size) :
+            labels_and_scores(DictAvl<int,int>(labels_and_scores,size)){};
     /*
     *	creates a new label inside the super pixel.
     *	throws LabelAlreadyExists if label exists.

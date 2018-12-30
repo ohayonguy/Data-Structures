@@ -171,7 +171,6 @@ public:
      */
     DictAvl(AvlNode* root, int size) : root(root), size(size) {};
     DictAvl(AvlNode* root) = delete; // We can't initialize this way.
-    DictAvl(const DictAvl& other) = delete;
     /**
      * Destructor
      */
@@ -773,6 +772,9 @@ int DictAvl<Key, Value>::FillAllNodesInOrder(AvlNode* nodes, int index, const Av
     nodes[index].key = current_node->key;
     nodes[index].right_son = nullptr;
     nodes[index].left_son = nullptr;
+    nodes[index].left_height = 0;
+    nodes[index].right_height = 0;
+    nodes[index].balance_factor = 0;
     nodes[index].father = nullptr;
     nodes[index].rank = current_node->rank; // Not really relevant.
     index++;
