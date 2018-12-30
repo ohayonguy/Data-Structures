@@ -634,7 +634,6 @@ typename DictAvl<Key,Value>::AvlNode *DictAvl<Key, Value>::GetNodeToSwitchWith(t
 
 template<class Key, class Value>
 void DictAvl<Key, Value>::DeleteNodeByKey(const Key &key) {
-    assert(NodeInTree(root,key));
     DeleteNodeByPtr(GetNodePtrByKey(root,key));
     assert(!NodeInTree(root,key));
     assert(CheckIfAVL(root));
