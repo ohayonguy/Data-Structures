@@ -171,7 +171,6 @@ public:
      */
     DictAvl(AvlNode* root, int size) : root(root), size(size) {};
     DictAvl(AvlNode* root) = delete; // We can't initialize this way.
-    DictAvl(const DictAvl& other) = delete;
     /**
      * Destructor
      */
@@ -635,7 +634,6 @@ typename DictAvl<Key,Value>::AvlNode *DictAvl<Key, Value>::GetNodeToSwitchWith(t
 
 template<class Key, class Value>
 void DictAvl<Key, Value>::DeleteNodeByKey(const Key &key) {
-    assert(NodeInTree(root,key));
     DeleteNodeByPtr(GetNodePtrByKey(root,key));
     assert(!NodeInTree(root,key));
     assert(CheckIfAVL(root));
@@ -773,6 +771,9 @@ int DictAvl<Key, Value>::FillAllNodesInOrder(AvlNode* nodes, int index, const Av
     nodes[index].key = current_node->key;
     nodes[index].right_son = nullptr;
     nodes[index].left_son = nullptr;
+    nodes[index].left_height = 0;
+    nodes[index].right_height = 0;
+    nodes[index].balance_factor = 0;
     nodes[index].father = nullptr;
     nodes[index].rank = current_node->rank; // Not really relevant.
     index++;
@@ -783,6 +784,9 @@ int DictAvl<Key, Value>::FillAllNodesInOrder(AvlNode* nodes, int index, const Av
 template<class Key, class Value>
 typename DictAvl<Key, Value>::AvlNode* DictAvl<Key, Value>::CreateAVLTreeFromInOrderNodesArray(const DictAvl::AvlNode
                                                    *in_ordered_nodes, int size) {
+    if (size == 0) {
+        return nullptr;
+    }
     if (size <= 0)
         throw SizeError();
     int complete_tree_height = ceil(log2(size + 1)) - 1;

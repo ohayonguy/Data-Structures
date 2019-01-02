@@ -55,6 +55,7 @@ SuperPixel* SuperPixel::MergeSuperPixels(const SuperPixel &sp1, const SuperPixel
     int sp2_size = sp2.GetSize();
     int merged_array_size;
     const DictAvl<int, int>::AvlNode *merged_array;
+
     try {
         merged_array = MergeSortedAvlNodesArrays(sp1_inorder_array, sp1_size,
                                                  sp2_inorder_array, sp2_size,
@@ -64,12 +65,11 @@ SuperPixel* SuperPixel::MergeSuperPixels(const SuperPixel &sp1, const SuperPixel
         delete[] sp2_inorder_array;
         throw;
     }
-
     delete[] sp1_inorder_array;
     delete[] sp2_inorder_array;
-
     DictAvl<int,int>::AvlNode* merged_avl = DictAvl<int,int>::CreateAVLTreeFromInOrderNodesArray(merged_array,
                                                                               merged_array_size);
+
     delete[] merged_array;
     SuperPixel* merged_super_pixel = new SuperPixel(merged_avl,merged_array_size);
     return merged_super_pixel;
@@ -82,12 +82,14 @@ int SuperPixel::GetSize() const {
 const DictAvl<int, int>::AvlNode *
 SuperPixel::MergeSortedAvlNodesArrays(const DictAvl<int, int>::AvlNode *arr1, int size1,
                                       const DictAvl<int, int>::AvlNode *arr2, int size2, int* final_size) {
-    if (size1+size2 <= 0)
+   
+    if (size1+size2 <= 0) {
+        *final_size = 0;
         return nullptr;
+    }
 
     DictAvl<int, int>::AvlNode* merged_array = new DictAvl<int, int>::AvlNode[size1+size2]; // All the nodes will be
     //constructed with the default constructor of AvlNode.
-
     int i = 0, j = 0, k = 0;
     while (i < size1 && j < size2)
     {
