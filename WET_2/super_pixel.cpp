@@ -82,8 +82,10 @@ int SuperPixel::GetSize() const {
 const DictAvl<int, int>::AvlNode *
 SuperPixel::MergeSortedAvlNodesArrays(const DictAvl<int, int>::AvlNode *arr1, int size1,
                                       const DictAvl<int, int>::AvlNode *arr2, int size2, int* final_size) {
-    if (size1+size2 <= 0)
+    if (size1+size2 <= 0) {
+        *final_size = 0;
         return nullptr;
+    }
 
     DictAvl<int, int>::AvlNode* merged_array = new DictAvl<int, int>::AvlNode[size1+size2]; // All the nodes will be
     //constructed with the default constructor of AvlNode.

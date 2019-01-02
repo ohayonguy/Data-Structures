@@ -784,7 +784,10 @@ int DictAvl<Key, Value>::FillAllNodesInOrder(AvlNode* nodes, int index, const Av
 template<class Key, class Value>
 typename DictAvl<Key, Value>::AvlNode* DictAvl<Key, Value>::CreateAVLTreeFromInOrderNodesArray(const DictAvl::AvlNode
                                                    *in_ordered_nodes, int size) {
-    if (size <= 0)
+    if (size == 0) {
+        return nullptr;
+    }
+    if (size < 0)
         throw SizeError();
     int complete_tree_height = ceil(log2(size + 1)) - 1;
     AvlNode* complete_tree = CreateCompleteAvlTree(complete_tree_height);
