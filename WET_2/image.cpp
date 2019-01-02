@@ -35,7 +35,6 @@ void Image::MergeSuperPixels(pixelID pixel1, pixelID pixel2) {
 	SuperPixel* sp2 = GetSuperPixel(pixel2);
 	try {
 		int union_result = pixels->Union(pixels->Find(pixel1), pixels->Find(pixel2));
-		
 		SuperPixel* new_sp = SuperPixel::MergeSuperPixels(*sp1, *sp2);
 		pixels->SetData(union_result, shared_ptr<SuperPixel>(new_sp));
 	} catch (IllegalSet&) {

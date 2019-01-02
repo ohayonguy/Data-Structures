@@ -1,32 +1,55 @@
-#include "image.h"
-#include <iostream>
-#include <assert.h>
+#define CATCH_CONFIG_RUNNER
+#include "catch.hpp"
 
-using std::cout;
-using std::endl;
-int main() {
-	cout << "hi" << endl;
-
-	Image img = Image(6000);
-	for (int i = 1; i < 5000; ++i) {
-		img.SetLabelScore(i, 2*i+1, 3*i+1);
-		img.SetLabelScore(i, 5*i+1, 3*i+1);
-	}
-	for (int i = 1; i < 5000; ++i) {
-		assert(img.GetHighestScoredLabel(i) == 5*i+1);
-	}
-	for (int i = 1; i < 5000; ++i) {
-		img.ResetLabelScore(i, 5*i+1);
-	}
-	img.MergeSuperPixels(3, 5);
-	assert(img.GetHighestScoredLabel(3) == img.GetHighestScoredLabel(5));
-	assert(img.GetHighestScoredLabel(3) == 11);
-	img.SetLabelScore(5, 8, 50);
-	assert(img.GetHighestScoredLabel(3) == 8);
-	img.SetLabelScore(6, 8, 40);
-	img.MergeSuperPixels(6, 3);
-	assert(img.GetHighestScoredLabel(3) == 8);
-	cout << "bye" << endl;
-
-	return 0;
+int main(int argc, char* argv[]) {
+  using std::cout;
+  cout << "\nWelcome to the Wet 2 Data structures tests                          \n"
+          "The tests were written by: Vova Parakhin.                           \n\n"
+          "------Passing those tests won't guarantee you a good grade------      \n"
+          "But they might get you closer :)                                      \n"
+          "You can change w/e you want in the file itself but make sure          \n"
+          "to contact me if you want to upload \'upgraded version\' of the file. \n"
+          "                                                                    \n\n"
+          "              _                                                       \n"
+          "             | |                                                      \n"
+          "             | |===( )   //////                                       \n"
+          "             |_|   |||  | o o|                                        \n"
+          "                    ||| ( c  )                  ____                  \n"
+          "                     ||| \\= /                  ||   \\_              \n"
+          "                      ||||||                   ||     |               \n"
+          "                      ||||||                ...||__/|-\"              \n"
+          "                      ||||||             __|________|__               \n"
+          "                        |||             |______________|              \n"
+          "                        |||             |    ENTER     |              \n"
+          "                        |||             |______________|              \n"
+          "                        |||             || ||      || ||              \n"
+          "                        |||             || ||      || ||              \n"
+          "------------------------|||-------------||-||------||-||-------       \n"
+          "                        |__>            || ||      || ||              \n"
+          "                                                                      \n"
+          "                                                                      \n"
+          "\033[1;31m            SMASH ENTER to continue             \033[0m     \n";
+  getchar();
+  int result = Catch::Session().run(argc, argv);
+  cout << "  __    __       ___      .______   .______   ____    ____            \n"
+          " |  |  |  |     /   \\     |   _  \\  |   _   \\ \\   \\  /   /       \n"
+          " |  |__|  |    /  ^  \\    |  |_)  | |  |_)  |  \\   \\/   /          \n"
+          " |   __   |   /  /_\\  \\   |   ___/  |   ___/    \\_    _/           \n"
+          " |  |  |  |  /  _____  \\  |  |      |  |          |  |               \n"
+          " |__|  |__| /__/     \\__\\ | _|      | _|          |__|              \n"
+          "                                                                      \n"
+          "  .__   __.  ___________    __    ____                                \n"
+          "  |  \\ |  | |   ____\\   \\  /  \\  /   /                            \n"
+          "  |   \\|  | |  |__   \\   \\/    \\/   /                             \n"
+          "  |  . `  | |   __|   \\            /                                 \n"
+          "  |  |\\   | |  |____   \\    /\\    /                                \n"
+          "  |__| \\__| |_______|   \\__/  \\__/                                 \n"
+          "                                                                      \n"
+          "  ____    ____  _______     ___      .______                          \n"
+          "  \\   \\  /   / |   ____|   /   \\     |   _  \\                     \n"
+          "   \\   \\/   /  |  |__     /  ^  \\    |  |_)  |                     \n"
+          "    \\_    _/   |   __|   /  /_\\  \\   |      /                      \n"
+          "      |  |     |  |____ /  _____  \\  |  |\\  \\----.                 \n"
+          "      |__|     |_______/__/     \\__\\ | _| `._____|                  \n";
+  return 0;
 }

@@ -7,6 +7,9 @@
  * Return Values: A pointer to a new instance of the data structure - as a void* pointer.
  */
 void * Init(int pixels) {
+	if (pixels <= 0) {
+		return NULL;
+	}
 	try {
 		ImageDatabase* DS = new ImageDatabase(pixels);
 		return (void*)DS;
