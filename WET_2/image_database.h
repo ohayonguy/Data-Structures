@@ -29,6 +29,11 @@ public:
 	~ImageDatabase();
 
 	/*
+	*	@returns the amount of pixels in each image.
+	*/
+	int GetPixels();
+
+	/*
 	*	adds a new image to the database.
 	*	@param image_id is the new image id to add.
 	*/
@@ -43,6 +48,7 @@ public:
 	/*
 	*	adds a new label with a given score to the super pixel of a given
 	*	pixel inside a given image.
+	*	if the label exists already - changes it's score.
 	*	@param image_id is the image to which the pixel belongs.
 	*	@param pixel is the pixel id. the label will be added to this pixel's super pixel.
 	*	@param label is the new label to add.

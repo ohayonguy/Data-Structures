@@ -8,9 +8,6 @@
 
 using std::shared_ptr;
 class Image {
-	class PixelNotFound : public std::exception {};
-	class IllegalPixelMerge : public std::exception {};
-
 	typedef int pixelID;
 	UnionFind<shared_ptr<SuperPixel>>* pixels;
 
@@ -23,6 +20,8 @@ class Image {
 	SuperPixel* GetSuperPixel(pixelID pixel);
 
 public:
+	class PixelNotFound : public std::exception {};
+	class IllegalPixelMerge : public std::exception {};
 	/*
 	*	constructor.
 	*	@param pixels is the number of pixels in the image.
