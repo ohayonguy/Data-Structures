@@ -201,6 +201,8 @@ StatusType MergeSuperPixels(void *DS, int imageID, int pixel1, int pixel2) {
  * Return Values: None.
  */
 void Quit(void** DS) {
+	if (DS==NULL)
+		return;
 	ImageDatabase* DB = *((ImageDatabase**)DS);
 	delete DB;
 	*DS = NULL;
