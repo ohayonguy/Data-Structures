@@ -120,6 +120,7 @@ class HashTable {
 				delete current_node;
 				return;
 			}
+			current_node = current_node->next;
 		}
 		throw KeyDoesNotExist();
 	}
