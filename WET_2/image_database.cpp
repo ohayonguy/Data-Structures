@@ -44,7 +44,7 @@ void ImageDatabase::ResetLabelScore(int image_id, int pixel, int label) {
 }
 
 int ImageDatabase::GetHighestScoredLabel(int image_id, int pixel) {
-	GetImage(image_id)->GetHighestScoredLabel(pixel);
+	return GetImage(image_id)->GetHighestScoredLabel(pixel);
 }
 
 void ImageDatabase::MergeSuperPixels(int image_id, int pixel1, int pixel2) {

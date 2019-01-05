@@ -1,5 +1,4 @@
 #define CATCH_CONFIG_RUNNER
-#include "catch.hpp"
 #include <iostream>
 #include "dict_avl.h"
 #include "super_pixel.h"
@@ -12,7 +11,7 @@ using std::cout;
 using std::endl;
 
 void TestCreateTreeFromInOrderList() {
-	double max_size = 100.0;
+	double max_size = 3000.0;
 	for (int k = 1; k < max_size; k++) {
 
 		DictAvl<Key,Value>::AvlNode* array_of_nodes = new DictAvl<Key,Value>::AvlNode[k];
@@ -45,7 +44,7 @@ void TestInsertDeleteInAvlTree() {
 	DictAvl<Key,Value> avl_dict;
 	std::vector<Key> inserted_keys;
 	std::vector<int> insertion_shuffle;
-	double max_size = 100.0;
+	double max_size = 3000.0;
 	for (int i = 0; i < max_size; i++) {
 		int new_insertion = rand();
 		insertion_shuffle.push_back(new_insertion);
@@ -74,8 +73,8 @@ int RandomFunc() {
 	return rand();
 }
 void TestMergeSuperPixels() {
-	int num_of_labels = 10;
-	double num_of_tests = 100.0;
+	int num_of_labels = 100;
+	double num_of_tests = 3000.0;
 	for (int j = 1; j < num_of_tests; j++) {
 		SuperPixel sp1;
 		SuperPixel sp2;
@@ -144,8 +143,8 @@ void TestMergeSuperPixels() {
 
 }
 void TestGetHighestScoreLabel() {
-	int num_of_labels = 10;
-	double num_of_tests = 100.0;
+	int num_of_labels = 100;
+	double num_of_tests = 3000.0;
 	for (int j = 1; j < num_of_tests; j++) {
 		SuperPixel sp1;
 
@@ -157,7 +156,6 @@ void TestGetHighestScoreLabel() {
 			sp1_scores.push_back(random_score);
 		}
 
-		int label_of_max_score = -1;
 		int last_max_score = -1;
 		for (int i = 0; i < num_of_labels; i++) {
 			int random_label = RandomFunc();
@@ -170,7 +168,6 @@ void TestGetHighestScoreLabel() {
 
 			if (sp1_scores.back() >= last_max_score) {
 				last_max_score = sp1_scores.back();
-				label_of_max_score = random_label;
 			}
 
 			sp1_scores.pop_back();
@@ -192,54 +189,5 @@ int main(int argc, char* argv[]) {
 	TestCreateTreeFromInOrderList();
 	TestInsertDeleteInAvlTree();
 	std::cout<<"OK!"<<std::endl;
-  using std::cout;
-  cout << "\nWelcome to the Wet 2 Data structures tests                          \n"
-          "The tests were written by: Vova Parakhin.                           \n\n"
-          "------Passing those tests won't guarantee you a good grade------      \n"
-          "But they might get you closer :)                                      \n"
-          "You can change w/e you want in the file itself but make sure          \n"
-          "to contact me if you want to upload \'upgraded version\' of the file. \n"
-          "                                                                    \n\n"
-          "              _                                                       \n"
-          "             | |                                                      \n"
-          "             | |===( )   //////                                       \n"
-          "             |_|   |||  | o o|                                        \n"
-          "                    ||| ( c  )                  ____                  \n"
-          "                     ||| \\= /                  ||   \\_              \n"
-          "                      ||||||                   ||     |               \n"
-          "                      ||||||                ...||__/|-\"              \n"
-          "                      ||||||             __|________|__               \n"
-          "                        |||             |______________|              \n"
-          "                        |||             |    ENTER     |              \n"
-          "                        |||             |______________|              \n"
-          "                        |||             || ||      || ||              \n"
-          "                        |||             || ||      || ||              \n"
-          "------------------------|||-------------||-||------||-||-------       \n"
-          "                        |__>            || ||      || ||              \n"
-          "                                                                      \n"
-          "                                                                      \n"
-          "\033[1;31m            SMASH ENTER to continue             \033[0m     \n";
-  getchar();
-  int result = Catch::Session().run(argc, argv);
-  cout << "  __    __       ___      .______   .______   ____    ____            \n"
-          " |  |  |  |     /   \\     |   _  \\  |   _   \\ \\   \\  /   /       \n"
-          " |  |__|  |    /  ^  \\    |  |_)  | |  |_)  |  \\   \\/   /          \n"
-          " |   __   |   /  /_\\  \\   |   ___/  |   ___/    \\_    _/           \n"
-          " |  |  |  |  /  _____  \\  |  |      |  |          |  |               \n"
-          " |__|  |__| /__/     \\__\\ | _|      | _|          |__|              \n"
-          "                                                                      \n"
-          "  .__   __.  ___________    __    ____                                \n"
-          "  |  \\ |  | |   ____\\   \\  /  \\  /   /                            \n"
-          "  |   \\|  | |  |__   \\   \\/    \\/   /                             \n"
-          "  |  . `  | |   __|   \\            /                                 \n"
-          "  |  |\\   | |  |____   \\    /\\    /                                \n"
-          "  |__| \\__| |_______|   \\__/  \\__/                                 \n"
-          "                                                                      \n"
-          "  ____    ____  _______     ___      .______                          \n"
-          "  \\   \\  /   / |   ____|   /   \\     |   _  \\                     \n"
-          "   \\   \\/   /  |  |__     /  ^  \\    |  |_)  |                     \n"
-          "    \\_    _/   |   __|   /  /_\\  \\   |      /                      \n"
-          "      |  |     |  |____ /  _____  \\  |  |\\  \\----.                 \n"
-          "      |__|     |_______/__/     \\__\\ | _| `._____|                  \n";
   return 0;
 }
