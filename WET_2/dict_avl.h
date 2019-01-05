@@ -4,8 +4,7 @@
 
 #ifndef WET1_DICT_AVL_H
 #define WET1_DICT_AVL_H
-//#define NDEBUG
-//TODO: don't forget to add this define!
+#define NDEBUG
 #include <iostream>
 #include <assert.h>
 #include <algorithm>
