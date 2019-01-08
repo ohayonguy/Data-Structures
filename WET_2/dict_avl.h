@@ -4,11 +4,8 @@
 
 #ifndef WET1_DICT_AVL_H
 #define WET1_DICT_AVL_H
-#define NDEBUG
 #include <iostream>
 #include <assert.h>
-#include <algorithm>
-#include <vector>
 #include <math.h>
 
 template <class Key, class Value>
