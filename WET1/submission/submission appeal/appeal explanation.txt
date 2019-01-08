@@ -1,0 +1,10 @@
+All of the changes can be seen by searching for 'DELETED' in the code.
+The changes are:
+1) in dict_avl.h, line 7, deleted the line for #define NDEBUG.
+	defining NDEBUG caused the compiler to report a warning becuase the compilation line already contained -DNDEBUG.
+2) in dict_avl.h, line 11, deleted #include <vector> which is not really used in our code.
+3) in dict_avl.h, line 10, deleted #include <algorithm> which is not used in our code.
+	both of these are modules that we did not use in our code. We only forgot to delete the "include" statements.
+4) in image.h, line 172, replaced delete with delete[] in one line only.
+	the algorithm itself remains the same, and the mistake did not cause any actual memory leaks or output differences:
+	valgrind failed only because this is the wrong delete type.
