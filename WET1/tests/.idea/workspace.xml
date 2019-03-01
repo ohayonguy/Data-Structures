@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7bcf1bf3-9753-48b4-8c24-af599027dfa5" name="Default Changelist" comment="" />
+    <list default="true" id="7bcf1bf3-9753-48b4-8c24-af599027dfa5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../WET_2/Drawing2.vsdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/catch.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/dict_avl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/dry-merged.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/dry.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/hash_table.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/image.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/image.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/image_database.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/image_database.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/library.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/library.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/submission/WET_2.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/submission/dry-merged.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/submission/run_all_tests.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/submission/submission.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/super_pixel.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/super_pixel.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/tests.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WET_2/union_find.h" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,12 +38,14 @@
     <session id="-761730740">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.18" value="2" />
+          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.18" value="3" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.24" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -59,7 +84,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/cygwin64/home/guyoe/New folder/testResultGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
+            <state relative-caret-position="3680">
               <caret line="186" selection-start-line="186" selection-end-line="186" />
             </state>
           </provider>
@@ -68,8 +93,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/graphs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="117" column="39" lean-forward="true" selection-start-line="117" selection-start-column="39" selection-end-line="117" selection-end-column="39" />
+            <state relative-caret-position="417">
+              <caret line="117" column="39" selection-start-line="117" selection-start-column="39" selection-end-line="117" selection-end-column="39" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -80,7 +105,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/matplotlib/backend_bases.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
+            <state relative-caret-position="900">
               <caret line="45" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
@@ -123,10 +148,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
-    <option name="width" value="1944" />
-    <option name="height" value="1044" />
+    <option name="x" value="-15" />
+    <option name="y" value="-15" />
+    <option name="width" value="1947" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -134,6 +159,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -145,7 +171,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -212,7 +237,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17327935" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18137652" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -251,22 +276,22 @@
     </entry>
     <entry file="file://C:/cygwin64/home/guyoe/New folder/testResultGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
+        <state relative-caret-position="3680">
           <caret line="186" selection-start-line="186" selection-end-line="186" />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/matplotlib/backend_bases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
+        <state relative-caret-position="900">
           <caret line="45" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/graphs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="117" column="39" lean-forward="true" selection-start-line="117" selection-start-column="39" selection-end-line="117" selection-end-column="39" />
+        <state relative-caret-position="417">
+          <caret line="117" column="39" selection-start-line="117" selection-start-column="39" selection-end-line="117" selection-end-column="39" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

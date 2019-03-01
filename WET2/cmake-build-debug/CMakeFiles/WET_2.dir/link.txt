@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/WET_2.dir/main_for_tests.cpp.o CMakeFiles/WET_2.dir/image_database.cpp.o CMakeFiles/WET_2.dir/image.cpp.o CMakeFiles/WET_2.dir/library.cpp.o CMakeFiles/WET_2.dir/super_pixel.cpp.o  -o WET_2.exe -Wl,--out-implib,libWET_2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
